@@ -36,8 +36,9 @@ filters:
 
 **Task 2.** Write a program that will 
 
-- collect all monetary amounts from a given text
-   Example: \lstinline!"first amount is $123.45, second amount is $400" -> [123.45, 400]!.
+- collect all monetary amounts from a given text.
+
+   Example: "first amount is $123.45, second amount is $400" -> `[123.45, 400]`.
 
 - convert these to float numbers
 - and sum them

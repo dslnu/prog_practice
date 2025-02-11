@@ -43,8 +43,9 @@ filters:
 - and sum them
 
 **Task 3.** Write a program that will cleanup Python source code by:
+
 - removing source code comments from Python code.
-- removing blank lines (hint: use \lstinline|\r, \n| special characters)
+- removing blank lines (hint: use `\r`, `\n` special characters)
 
 **Task 4.** Write a program that will convert dates in "yyyy-mm-dd"\ format to "dd-mm-yyyy"\ format.
 

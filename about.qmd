@@ -1,3 +1,3 @@
 ---
-title: "Programming Practice (2nd year)"
+title: "Programming Practice"
 ---

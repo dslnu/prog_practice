@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dslnu.github.io/prog_practice/about.html</loc>
-    <lastmod>2025-02-11T17:05:32.535Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dslnu.github.io/prog_practice/lab1.html</loc>
-    <lastmod>2025-02-11T17:11:17.685Z</lastmod>
+    <loc>https://dslnu.github.io/prog_practice/nb/Untitled.html</loc>
+    <lastmod>2025-02-12T10:46:33.337Z</lastmod>
   </url>
   <url>
     <loc>https://dslnu.github.io/prog_practice/index.html</loc>
-    <lastmod>2025-02-11T17:05:32.536Z</lastmod>
+    <lastmod>2025-02-12T11:07:23.661Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dslnu.github.io/prog_practice/lab1.html</loc>
+    <lastmod>2025-02-12T11:04:33.664Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dslnu.github.io/prog_practice/lab2.html</loc>
+    <lastmod>2025-02-12T08:50:50.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dslnu.github.io/prog_practice/about.html</loc>
+    <lastmod>2025-02-12T11:05:23.430Z</lastmod>
   </url>
 </urlset>

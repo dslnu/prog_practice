@@ -1,17 +1,10 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "nb/Untitled.html",
+    "href": "nb/Untitled.html",
+    "title": "prog_practice",
     "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "lab1.html",
-    "href": "lab1.html",
-    "title": "Programming Practice: Lab 1",
-    "section": "",
-    "text": "Python Regular Expressions\nRequired reading:\n\nOfficial Python package documentation.\nRegex cheatsheet\nCheatsheet with examples\n\n\n\nExercises\nTask 1. Write regexes that:\n\nremove all special (non-alphanumeric) characters from a string.\nmatch a word that contains a given character (e.g. “y”).\nmatch a word that is \\(n\\) characters long.\nmatch a word that begins with “a” OR “b” and ends with “s”.\n\nTask 2. Write a program that will\n\ncollect all monetary amounts from a given text.\nExample: “first amount is $123.45, second amount is $400” -&gt; [123.45, 400].\nconvert these to float numbers\nand sum them\n\nTask 3. Write a program that will cleanup Python source code by:\n\nremoving source code comments from Python code.\nremoving blank lines (hint: use \\r, \\n special characters)\n\nTask 4. Write a program that will convert dates in “yyyy-mm-dd” format to “dd-mm-yyyy” format.\nExample: 2024-02-11 -&gt; 11-02-2024."
+    "text": "block1={\n  'id': '0x54b',\n  'view': 0\n}\nblock2={\n  'id': '0xfe3',\n  'view': 1\n}\nblock3={\n  'id': '0xab8',\n  'view': 1\n}\n\nvote={\n    'block_id': '0x234343'\n}\n\nchain = [block1, block2, block3]\n\n\nprint(chain)\n\n[{'id': '0x54b', 'view': 0}, {'id': '0xfe3', 'view': 1}, {'id': '0xab8', 'view': 1}]"
   },
   {
     "objectID": "index.html",
@@ -21,10 +14,45 @@
     "text": "Lab 1"
   },
   {
-    "objectID": "index.html#lab-1",
-    "href": "index.html#lab-1",
+    "objectID": "index.html#labs",
+    "href": "index.html#labs",
     "title": "Programming practice",
     "section": "",
     "text": "Lab 1"
+  },
+  {
+    "objectID": "index.html#assessment",
+    "href": "index.html#assessment",
+    "title": "Programming practice",
+    "section": "Assessment",
+    "text": "Assessment\n\n2 points max for each lesson\n4 points max for each lab (if submitted later than 2 weeks deadline, max points is 2)\n\nHence, max points to score during semester is \\((2+4)*16 = 96\\)."
+  },
+  {
+    "objectID": "lab1.html",
+    "href": "lab1.html",
+    "title": "Programming Practice: Lab 1",
+    "section": "",
+    "text": "By block we will mean an object with two fields:\n\n\n\n\n\nblock-beta\n  block\n    columns 1\n    id[\"id: hexadecimal string\"]\n    view[\"view: positive integer\"]\n  end\n\n\n\n\n\n\nHere \\(\\text{view} \\in \\mathbb{Z}_+\\).\n\n\n\nBy vote we will mean a single-field object\n\n\n\n\n\nblock-beta\n  block_id[\"block_id: hexadecimal string\"]\n\n\n\n\n\n\n\n\n\nBy chain we will mean a sequence of block objects which:\n\nstart from block with view=0\nare monotonically ordered by view\nno gaps are allowed, e.g. block with view=3 cannot follow block with view=1\n\n\n\n\n\n\nflowchart LR\n  block1[\"`**Block 0** &lt;br/&gt; id: 0x54b &lt;br/&gt; view: 0`\"] --&gt; block2[\"`**Block 1** &lt;br/&gt; id: 0xfe3 &lt;br/&gt; view: 1`\"] --&gt; block3[\"`**Block 2** &lt;br/&gt; id: 0xab8 &lt;br/&gt; view: 2`\"]\n\n\n\n\n\n\nSo, for example, here are valid Python representations of these objects:\nblock1={\n  'id': '0x54b',\n  'view': 0\n}\nblock2={\n  'id': '0xfe3',\n  'view': 1\n}\nblock3={\n  'id': '0xab8',\n  'view': 1\n}\n\nvote={\n    'block_id': '0x234343'\n}\n\nchain = [block1, block2, block3]"
+  },
+  {
+    "objectID": "lab1.html#preliminary-definitions",
+    "href": "lab1.html#preliminary-definitions",
+    "title": "Programming Practice: Lab 1",
+    "section": "",
+    "text": "By block we will mean an object with two fields:\n\n\n\n\n\nblock-beta\n  block\n    columns 1\n    id[\"id: hexadecimal string\"]\n    view[\"view: positive integer\"]\n  end\n\n\n\n\n\n\nHere \\(\\text{view} \\in \\mathbb{Z}_+\\).\n\n\n\nBy vote we will mean a single-field object\n\n\n\n\n\nblock-beta\n  block_id[\"block_id: hexadecimal string\"]\n\n\n\n\n\n\n\n\n\nBy chain we will mean a sequence of block objects which:\n\nstart from block with view=0\nare monotonically ordered by view\nno gaps are allowed, e.g. block with view=3 cannot follow block with view=1\n\n\n\n\n\n\nflowchart LR\n  block1[\"`**Block 0** &lt;br/&gt; id: 0x54b &lt;br/&gt; view: 0`\"] --&gt; block2[\"`**Block 1** &lt;br/&gt; id: 0xfe3 &lt;br/&gt; view: 1`\"] --&gt; block3[\"`**Block 2** &lt;br/&gt; id: 0xab8 &lt;br/&gt; view: 2`\"]\n\n\n\n\n\n\nSo, for example, here are valid Python representations of these objects:\nblock1={\n  'id': '0x54b',\n  'view': 0\n}\nblock2={\n  'id': '0xfe3',\n  'view': 1\n}\nblock3={\n  'id': '0xab8',\n  'view': 1\n}\n\nvote={\n    'block_id': '0x234343'\n}\n\nchain = [block1, block2, block3]"
+  },
+  {
+    "objectID": "lab1.html#problem",
+    "href": "lab1.html#problem",
+    "title": "Programming Practice: Lab 1",
+    "section": "Problem",
+    "text": "Problem\nWe need to build a chain out of a random sequence of blocks and votes coming through input. We can only add a block with view=N to a chain if:\n\na vote for block’s id has been received earlier\ntip of the chain has the block with view=N-1\n\n\nImplementation details\nThere are two architectures to use when implementing the code:\n\nA0: class-based\nA1: functional\n\nAnd three types of inputs/outputs for the project:\n\nIO0: use command-line arguments\nIO1: use CSV files\nIO2: use SQL DB\n\nHence, 6 options total. So, if \\(N \\in {1,...,13}\\) is your number, the architecture/io to choose will be as follows:\n\narchitecture: \\(N \\mod 2\\)\nio: \\(N \\mod 3\\)\n\nE.g., if \\(N=8\\), then use A0 (class-based approach) and IO2 (SQL DB)."
+  },
+  {
+    "objectID": "lab2.html",
+    "href": "lab2.html",
+    "title": "Programming Practice: Lab 1",
+    "section": "",
+    "text": "Python Regular Expressions\nRequired reading:\n\nOfficial Python package documentation.\nRegex cheatsheet\nCheatsheet with examples\n\n\n\nExercises\nTask 1. Write regexes that:\n\nremove all special (non-alphanumeric) characters from a string.\nmatch a word that contains a given character (e.g. “y”).\nmatch a word that is \\(n\\) characters long.\nmatch a word that begins with “a” OR “b” and ends with “s”.\n\nTask 2. Write a program that will\n\ncollect all monetary amounts from a given text.\nExample: “first amount is $123.45, second amount is $400” -&gt; [123.45, 400].\nconvert these to float numbers\nand sum them\n\nTask 3. Write a program that will cleanup Python source code by:\n\nremoving source code comments from Python code.\nremoving blank lines (hint: use \\r, \\n special characters)\n\nTask 4. Write a program that will convert dates in “yyyy-mm-dd” format to “dd-mm-yyyy” format.\nExample: 2024-02-11 -&gt; 11-02-2024."
   }
 ]

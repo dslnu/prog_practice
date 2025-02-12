@@ -2,7 +2,7 @@
 title: "Programming Practice: Lab 1"
 execute:
   enabled: true
-  echo: true
+  echo: false
   cache: true
 format:
   html:
@@ -18,36 +18,85 @@ filters:
   - diagram
 ---
 
-# Python Regular Expressions
+## Preliminary definitions
 
- Required reading: 
+### Blocks
+By `block` we will mean an object with two fields:
 
-- Official [Python package documentation](https://docs.python.org/3/howto/regex.html).
-- [Regex cheatsheet](https://www.debuggex.com/cheatsheet/regex/python)
-- [Cheatsheet with examples](https://images.datacamp.com/image/upload/v1665049611/Marketing/Blog/Regular_Expressions_Cheat_Sheet.pdf)
+```{mermaid}
+block-beta
+  block
+    columns 1
+    id["id: hexadecimal string"]
+    view["view: positive integer"]
+  end
+```
+Here $\text{view} \in \mathbb{Z}_+$.
 
-# Exercises
-**Task 1.** Write regexes that:
+### Votes
+By `vote` we will mean a single-field object
+```{mermaid}
+block-beta
+  block_id["block_id: hexadecimal string"]
+```
 
-- remove all special (non-alphanumeric) characters from a string.
-- match a word that contains a given character (e.g. "y").
-- match a word that is $n$ characters long.
-- match a word that begins with "a" OR "b" and ends with "s".
+### Chain
+By `chain` we will mean a sequence of `block` objects which:
 
-**Task 2.** Write a program that will 
+  - start from block with `view=0`
+  - are monotonically ordered by `view`
+  - no gaps are allowed, e.g. block with `view=3` cannot follow block with `view=1`
+```{mermaid}
+flowchart LR
+  block1["`**Block 0** <br/> id: 0x54b <br/> view: 0`"] --> block2["`**Block 1** <br/> id: 0xfe3 <br/> view: 1`"] --> block3["`**Block 2** <br/> id: 0xab8 <br/> view: 2`"]
+```
 
-- collect all monetary amounts from a given text.
+So, for example, here are valid Python representations of these objects:
+```python
+block1={
+  'id': '0x54b',
+  'view': 0
+}
+block2={
+  'id': '0xfe3',
+  'view': 1
+}
+block3={
+  'id': '0xab8',
+  'view': 1
+}
 
-   Example: "first amount is $123.45, second amount is $400" -> `[123.45, 400]`.
+vote={
+    'block_id': '0x234343'
+}
 
-- convert these to float numbers
-- and sum them
+chain = [block1, block2, block3]
+```
 
-**Task 3.** Write a program that will cleanup Python source code by:
 
-- removing source code comments from Python code.
-- removing blank lines (hint: use `\r`, `\n` special characters)
+## Problem
+We need to build a `chain` out of a random sequence of `block`s and `vote`s coming through input.
+We can only add a block with `view=N` to a chain if:
 
-**Task 4.** Write a program that will convert dates in "yyyy-mm-dd"\ format to "dd-mm-yyyy"\ format.
+- a vote for block's `id` has been received earlier
+- tip of the chain has the block with `view=N-1`
 
-Example: `2024-02-11 -> 11-02-2024`.
+### Implementation details
+
+There are two architectures to use when implementing the code:
+
+  - **A0**: class-based
+  - **A1**: functional
+
+And three types of inputs/outputs for the project:
+
+  - **IO0**: use command-line arguments
+  - **IO1**: use CSV files
+  - **IO2**: use SQL DB
+
+Hence, 6 options total. So, if $N \in {1,...,13}$ is your number, the architecture/io to choose will be as follows:
+
+  - architecture: $N \mod 2$
+  - io: $N \mod 3$
+
+E.g., if $N=8$, then use **A0** (class-based approach) and **IO2** (SQL DB).

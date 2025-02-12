@@ -1,5 +1,3 @@
 ---
-title: "About"
+title: "Programming Practice (2nd year)"
 ---
-
-About this site

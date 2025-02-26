@@ -1,5 +1,5 @@
 ---
-title: "Programming Practice: Lab 1"
+title: "Programming Practice: Lab 2"
 execute:
   enabled: true
   echo: true
@@ -18,36 +18,27 @@ filters:
   - diagram
 ---
 
-# Python Regular Expressions
+# Git Fundamentals
 
- Required reading: 
+1. Install Git for Windows.
+2. Run `Git Bash`.
+3. Create a test directory: `mkdir test`.
+4. Navigate to test directory: `cd test`.
+5. Create a test file: `echo "test contents" > test.txt`.
+6. Initialize a Git repo: `git init`.
+7. Check Git repo status: `git status`.
+8. Add the test file: `git add test.txt`.
+9. Commit the test file: `git commit -m "Commit message"`
+  - Git will complain that it doesn't know who you are. Update your name and email per it's instructions.
+10. Navigate to GitHub and create your account and repository.
+11. Copy repository URL and set it in your local repo via `git remote add origin <GITHUB_REPO_URL>`.
+12. Push your local changes to remote repo: `git push -u origin master`.
+  - Note that `-u` option is only needed the first time you're doing the push in any local branch.
 
-- Official [Python package documentation](https://docs.python.org/3/howto/regex.html).
-- [Regex cheatsheet](https://www.debuggex.com/cheatsheet/regex/python)
-- [Cheatsheet with examples](https://images.datacamp.com/image/upload/v1665049611/Marketing/Blog/Regular_Expressions_Cheat_Sheet.pdf)
+
+# Recommended reading: 
+
+- 
 
 # Exercises
-**Task 1.** Write regexes that:
-
-- remove all special (non-alphanumeric) characters from a string.
-- match a word that contains a given character (e.g. "y").
-- match a word that is $n$ characters long.
-- match a word that begins with "a" OR "b" and ends with "s".
-
-**Task 2.** Write a program that will 
-
-- collect all monetary amounts from a given text.
-
-   Example: "first amount is $123.45, second amount is $400" -> `[123.45, 400]`.
-
-- convert these to float numbers
-- and sum them
-
-**Task 3.** Write a program that will cleanup Python source code by:
-
-- removing source code comments from Python code.
-- removing blank lines (hint: use `\r`, `\n` special characters)
-
-**Task 4.** Write a program that will convert dates in "yyyy-mm-dd"\ format to "dd-mm-yyyy"\ format.
-
-Example: `2024-02-11 -> 11-02-2024`.
+**Task 1.** Create a repo for BlockProcessor task  and push it to GitHub.

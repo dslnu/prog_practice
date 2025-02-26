@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming Practice: Lab 2 – prog_practice</title>
+<title>Programming Practice: Lab 3 – prog_practice</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -112,8 +141,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#git-fundamentals" id="toc-git-fundamentals" class="nav-link active" data-scroll-target="#git-fundamentals">Git Fundamentals</a></li>
-  <li><a href="#recommended-reading" id="toc-recommended-reading" class="nav-link" data-scroll-target="#recommended-reading">Recommended reading:</a></li>
+  <li><a href="#python-regular-expressions" id="toc-python-regular-expressions" class="nav-link active" data-scroll-target="#python-regular-expressions">Python Regular Expressions</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul>
 </nav>
@@ -123,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Programming Practice: Lab 2</h1>
+<h1 class="title">Programming Practice: Lab 3</h1>
 </div>
 
 
@@ -140,40 +168,38 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="git-fundamentals" class="level1">
-<h1>Git Fundamentals</h1>
-<ol type="1">
-<li>Install Git for Windows.</li>
-<li>Run <code>Git Bash</code>.</li>
-<li>Create a test directory: <code>mkdir test</code>.</li>
-<li>Navigate to test directory: <code>cd test</code>.</li>
-<li>Create a test file: <code>echo "test contents" &gt; test.txt</code>.</li>
-<li>Initialize a Git repo: <code>git init</code>.</li>
-<li>Check Git repo status: <code>git status</code>.</li>
-<li>Add the test file: <code>git add test.txt</code>.</li>
-<li>Commit the test file: <code>git commit -m "Commit message"</code></li>
-</ol>
+<section id="python-regular-expressions" class="level1">
+<h1>Python Regular Expressions</h1>
+<p>Required reading:</p>
 <ul>
-<li>Git will complain that it doesn’t know who you are. Update your name and email per it’s instructions.</li>
-</ul>
-<ol start="10" type="1">
-<li>Navigate to GitHub and create your account and repository.</li>
-<li>Copy repository URL and set it in your local repo via <code>git remote add origin &lt;GITHUB_REPO_URL&gt;</code>.</li>
-<li>Push your local changes to remote repo: <code>git push -u origin master</code>.</li>
-</ol>
-<ul>
-<li>Note that <code>-u</code> option is only needed the first time you’re doing the push in any local branch.</li>
-</ul>
-</section>
-<section id="recommended-reading" class="level1">
-<h1>Recommended reading:</h1>
-<ul>
-<li></li>
+<li>Official <a href="https://docs.python.org/3/howto/regex.html">Python package documentation</a>.</li>
+<li><a href="https://www.debuggex.com/cheatsheet/regex/python">Regex cheatsheet</a></li>
+<li><a href="https://images.datacamp.com/image/upload/v1665049611/Marketing/Blog/Regular_Expressions_Cheat_Sheet.pdf">Cheatsheet with examples</a></li>
 </ul>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
-<p><strong>Task 1.</strong> Create a repo for BlockProcessor task and push it to GitHub.</p>
+<p><strong>Task 1.</strong> Write regexes that:</p>
+<ul>
+<li>remove all special (non-alphanumeric) characters from a string.</li>
+<li>match a word that contains a given character (e.g.&nbsp;“y”).</li>
+<li>match a word that is <span class="math inline">\(n\)</span> characters long.</li>
+<li>match a word that begins with “a” OR “b” and ends with “s”.</li>
+</ul>
+<p><strong>Task 2.</strong> Write a program that will</p>
+<ul>
+<li><p>collect all monetary amounts from a given text.</p>
+<p>Example: “first amount is $123.45, second amount is $400” -&gt; <code>[123.45, 400]</code>.</p></li>
+<li><p>convert these to float numbers</p></li>
+<li><p>and sum them</p></li>
+</ul>
+<p><strong>Task 3.</strong> Write a program that will cleanup Python source code by:</p>
+<ul>
+<li>removing source code comments from Python code.</li>
+<li>removing blank lines (hint: use <code>\r</code>, <code>\n</code> special characters)</li>
+</ul>
+<p><strong>Task 4.</strong> Write a program that will convert dates in “yyyy-mm-dd”&nbsp;format to “dd-mm-yyyy”&nbsp;format.</p>
+<p>Example: <code>2024-02-11 -&gt; 11-02-2024</code>.</p>
 
 
 </section>

@@ -11,14 +11,14 @@
     "href": "index.html",
     "title": "Programming practice",
     "section": "",
-    "text": "Lab 1"
+    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3"
   },
   {
     "objectID": "index.html#labs",
     "href": "index.html#labs",
     "title": "Programming practice",
     "section": "",
-    "text": "Lab 1"
+    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3"
   },
   {
     "objectID": "index.html#assessment",
@@ -26,6 +26,13 @@
     "title": "Programming practice",
     "section": "Assessment",
     "text": "Assessment\n\n2 points max for each lesson\n4 points max for each lab (if submitted later than 2 weeks deadline, max points is 2)\n\nHence, max points to score during semester is \\((2+4)*16 = 96\\)."
+  },
+  {
+    "objectID": "lab3.html",
+    "href": "lab3.html",
+    "title": "Programming Practice: Lab 3",
+    "section": "",
+    "text": "Python Regular Expressions\nRequired reading:\n\nOfficial Python package documentation.\nRegex cheatsheet\nCheatsheet with examples\n\n\n\nExercises\nTask 1. Write regexes that:\n\nremove all special (non-alphanumeric) characters from a string.\nmatch a word that contains a given character (e.g. “y”).\nmatch a word that is \\(n\\) characters long.\nmatch a word that begins with “a” OR “b” and ends with “s”.\n\nTask 2. Write a program that will\n\ncollect all monetary amounts from a given text.\nExample: “first amount is $123.45, second amount is $400” -&gt; [123.45, 400].\nconvert these to float numbers\nand sum them\n\nTask 3. Write a program that will cleanup Python source code by:\n\nremoving source code comments from Python code.\nremoving blank lines (hint: use \\r, \\n special characters)\n\nTask 4. Write a program that will convert dates in “yyyy-mm-dd” format to “dd-mm-yyyy” format.\nExample: 2024-02-11 -&gt; 11-02-2024."
   },
   {
     "objectID": "lab1.html",
@@ -51,8 +58,8 @@
   {
     "objectID": "lab2.html",
     "href": "lab2.html",
-    "title": "Programming Practice: Lab 1",
+    "title": "Programming Practice: Lab 2",
     "section": "",
-    "text": "Python Regular Expressions\nRequired reading:\n\nOfficial Python package documentation.\nRegex cheatsheet\nCheatsheet with examples\n\n\n\nExercises\nTask 1. Write regexes that:\n\nremove all special (non-alphanumeric) characters from a string.\nmatch a word that contains a given character (e.g. “y”).\nmatch a word that is \\(n\\) characters long.\nmatch a word that begins with “a” OR “b” and ends with “s”.\n\nTask 2. Write a program that will\n\ncollect all monetary amounts from a given text.\nExample: “first amount is $123.45, second amount is $400” -&gt; [123.45, 400].\nconvert these to float numbers\nand sum them\n\nTask 3. Write a program that will cleanup Python source code by:\n\nremoving source code comments from Python code.\nremoving blank lines (hint: use \\r, \\n special characters)\n\nTask 4. Write a program that will convert dates in “yyyy-mm-dd” format to “dd-mm-yyyy” format.\nExample: 2024-02-11 -&gt; 11-02-2024."
+    "text": "Git Fundamentals\n\nInstall Git for Windows.\nRun Git Bash.\nCreate a test directory: mkdir test.\nNavigate to test directory: cd test.\nCreate a test file: echo \"test contents\" &gt; test.txt.\nInitialize a Git repo: git init.\nCheck Git repo status: git status.\nAdd the test file: git add test.txt.\nCommit the test file: git commit -m \"Commit message\"\n\n\nGit will complain that it doesn’t know who you are. Update your name and email per it’s instructions.\n\n\nNavigate to GitHub and create your account and repository.\nCopy repository URL and set it in your local repo via git remote add origin &lt;GITHUB_REPO_URL&gt;.\nPush your local changes to remote repo: git push -u origin master.\n\n\nNote that -u option is only needed the first time you’re doing the push in any local branch.\n\n\n\nRecommended reading:\n\n\n\n\n\nExercises\nTask 1. Create a repo for BlockProcessor task and push it to GitHub."
   }
 ]

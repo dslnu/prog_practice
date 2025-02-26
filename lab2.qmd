@@ -38,7 +38,7 @@ filters:
 
 # Recommended reading: 
 
-- 
+- https://git-scm.com/book/en/v2
 
 # Exercises
 **Task 1.** Create a repo for BlockProcessor task  and push it to GitHub.

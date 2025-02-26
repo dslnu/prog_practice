@@ -4,7 +4,7 @@
     "href": "nb/Untitled.html",
     "title": "prog_practice",
     "section": "",
-    "text": "block1={\n  'id': '0x54b',\n  'view': 0\n}\nblock2={\n  'id': '0xfe3',\n  'view': 1\n}\nblock3={\n  'id': '0xab8',\n  'view': 1\n}\n\nvote={\n    'block_id': '0x234343'\n}\n\nchain = [block1, block2, block3]\n\n\nprint(chain)\n\n[{'id': '0x54b', 'view': 0}, {'id': '0xfe3', 'view': 1}, {'id': '0xab8', 'view': 1}]"
+    "text": "block1={\n  'id': '0x54b',\n  'view': 0\n}\nblock2={\n  'id': '0xfe3',\n  'view': 1\n}\nblock3={\n  'id': '0xab8',\n  'view': 1\n}\n\nvote={\n    'block_id': '0x234343'\n}\n\nchain = [block1, block2, block3]\n\n\nprint(chain)\n\n[{'id': '0x54b', 'view': 0}, {'id': '0xfe3', 'view': 1}, {'id': '0xab8', 'view': 1}]\n\n\n\nimport re\n\n\nre.findall(r'\\w+', \"abcd023\")\n\n['abcd023']\n\n\n\n\\"
   },
   {
     "objectID": "index.html",
@@ -60,6 +60,6 @@
     "href": "lab2.html",
     "title": "Programming Practice: Lab 2",
     "section": "",
-    "text": "Git Fundamentals\n\nInstall Git for Windows.\nRun Git Bash.\nCreate a test directory: mkdir test.\nNavigate to test directory: cd test.\nCreate a test file: echo \"test contents\" &gt; test.txt.\nInitialize a Git repo: git init.\nCheck Git repo status: git status.\nAdd the test file: git add test.txt.\nCommit the test file: git commit -m \"Commit message\"\n\n\nGit will complain that it doesn’t know who you are. Update your name and email per it’s instructions.\n\n\nNavigate to GitHub and create your account and repository.\nCopy repository URL and set it in your local repo via git remote add origin &lt;GITHUB_REPO_URL&gt;.\nPush your local changes to remote repo: git push -u origin master.\n\n\nNote that -u option is only needed the first time you’re doing the push in any local branch.\n\n\n\nRecommended reading:\n\n\n\n\n\nExercises\nTask 1. Create a repo for BlockProcessor task and push it to GitHub."
+    "text": "Git Fundamentals\n\nInstall Git for Windows.\nRun Git Bash.\nCreate a test directory: mkdir test.\nNavigate to test directory: cd test.\nCreate a test file: echo \"test contents\" &gt; test.txt.\nInitialize a Git repo: git init.\nCheck Git repo status: git status.\nAdd the test file: git add test.txt.\nCommit the test file: git commit -m \"Commit message\"\n\n\nGit will complain that it doesn’t know who you are. Update your name and email per it’s instructions.\n\n\nNavigate to GitHub and create your account and repository.\nCopy repository URL and set it in your local repo via git remote add origin &lt;GITHUB_REPO_URL&gt;.\nPush your local changes to remote repo: git push -u origin master.\n\n\nNote that -u option is only needed the first time you’re doing the push in any local branch.\n\n\n\nRecommended reading:\n\nhttps://git-scm.com/book/en/v2\n\n\n\nExercises\nTask 1. Create a repo for BlockProcessor task and push it to GitHub."
   }
 ]

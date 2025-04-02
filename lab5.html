@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming Practice: Lab 2 – prog_practice</title>
+<title>Programming Practice: Lab 5 – prog_practice</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -112,8 +112,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#git-fundamentals" id="toc-git-fundamentals" class="nav-link active" data-scroll-target="#git-fundamentals">Git Fundamentals</a></li>
-  <li><a href="#recommended-reading" id="toc-recommended-reading" class="nav-link" data-scroll-target="#recommended-reading">Recommended reading:</a></li>
+  <li><a href="#documentation" id="toc-documentation" class="nav-link active" data-scroll-target="#documentation">Documentation</a>
+  <ul class="collapse">
+  <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown">Markdown</a></li>
+  <li><a href="#mermaid" id="toc-mermaid" class="nav-link" data-scroll-target="#mermaid">Mermaid</a></li>
+  </ul></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul>
 </nav>
@@ -123,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Programming Practice: Lab 2</h1>
+<h1 class="title">Programming Practice: Lab 5</h1>
 </div>
 
 
@@ -140,40 +143,30 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="git-fundamentals" class="level1">
-<h1>Git Fundamentals</h1>
+<section id="documentation" class="level1">
+<h1>Documentation</h1>
+<section id="markdown" class="level2">
+<h2 class="anchored" data-anchor-id="markdown">Markdown</h2>
 <ol type="1">
-<li>Install Git for Windows.</li>
-<li>Run <code>Git Bash</code>.</li>
-<li>Create a test directory: <code>mkdir test</code>.</li>
-<li>Navigate to test directory: <code>cd test</code>.</li>
-<li>Create a test file: <code>echo "test contents" &gt; test.txt</code>.</li>
-<li>Initialize a Git repo: <code>git init</code>.</li>
-<li>Check Git repo status: <code>git status</code>.</li>
-<li>Add the test file: <code>git add test.txt</code>.</li>
-<li>Commit the test file: <code>git commit -m "Commit message"</code></li>
+<li>https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github</li>
+<li>Live editor: https://markdownlivepreview.com</li>
 </ol>
-<ul>
-<li>Git will complain that it doesn’t know who you are. Update your name and email per it’s instructions.</li>
-</ul>
-<ol start="10" type="1">
-<li>Navigate to GitHub and create your account and repository.</li>
-<li>Copy repository URL and set it in your local repo via <code>git remote add origin &lt;GITHUB_REPO_URL&gt;</code>.</li>
-<li>Push your local changes to remote repo: <code>git push -u origin master</code>.</li>
-</ol>
-<ul>
-<li>Note that <code>-u</code> option is only needed the first time you’re doing the push in any local branch.</li>
-</ul>
 </section>
-<section id="recommended-reading" class="level1">
-<h1>Recommended reading:</h1>
-<ul>
-<li>https://git-scm.com/book/en/v2</li>
-</ul>
+<section id="mermaid" class="level2">
+<h2 class="anchored" data-anchor-id="mermaid">Mermaid</h2>
+<ol type="1">
+<li>Docs: https://mermaid.js.org/intro/</li>
+<li>Live editor: https://mermaid.live</li>
+</ol>
+</section>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
-<p><strong>Task 1.</strong> Create a repo for BlockProcessor task and push it to GitHub.</p>
+<p><strong>Task 1</strong>. Create a <code>README.md</code> file for your repository:</p>
+<ul>
+<li>describe project structure</li>
+<li>draw a Mermaid flowchart diagram for the project</li>
+</ul>
 
 
 </section>

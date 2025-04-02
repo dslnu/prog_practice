@@ -7,25 +7,53 @@
     "text": "block1={\n  'id': '0x54b',\n  'view': 0\n}\nblock2={\n  'id': '0xfe3',\n  'view': 1\n}\nblock3={\n  'id': '0xab8',\n  'view': 1\n}\n\nvote={\n    'block_id': '0x234343'\n}\n\nchain = [block1, block2, block3]\n\n\nprint(chain)\n\n[{'id': '0x54b', 'view': 0}, {'id': '0xfe3', 'view': 1}, {'id': '0xab8', 'view': 1}]\n\n\n\nimport re\n\n\nre.findall(r'\\w+', \"abcd023\")\n\n['abcd023']\n\n\n\n\\"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Programming practice",
+    "objectID": "lab4.html",
+    "href": "lab4.html",
+    "title": "Programming Practice: Lab 4",
     "section": "",
-    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3"
+    "text": "How does one create a branch?\ngit branch some_branch\nThen, in order to merge some_branch into master, one can do:\ngit checkout master\ngit merge some_branch\nAlternatively, instead of git merge, a (preferred way) is rebasing:\nInside some_branch:\ngit rebase -i master\nAnd then\ngit checkout master\ngit merge some_branch\nIn this case, git merge will be a fast-forward merge, and no merge commit will be created.\n\n\n\nhttps://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging\nhttps://git-scm.com/book/en/v2/Git-Branching-Rebasing"
   },
   {
-    "objectID": "index.html#labs",
-    "href": "index.html#labs",
-    "title": "Programming practice",
+    "objectID": "lab4.html#recommended-reading",
+    "href": "lab4.html#recommended-reading",
+    "title": "Programming Practice: Lab 4",
     "section": "",
-    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3"
+    "text": "https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging\nhttps://git-scm.com/book/en/v2/Git-Branching-Rebasing"
   },
   {
-    "objectID": "index.html#assessment",
-    "href": "index.html#assessment",
-    "title": "Programming practice",
-    "section": "Assessment",
-    "text": "Assessment\n\n2 points max for each lesson\n4 points max for each lab (if submitted later than 2 weeks deadline, max points is 2)\n\nHence, max points to score during semester is \\((2+4)*16 = 96\\)."
+    "objectID": "lab4.html#what-is-a-tree",
+    "href": "lab4.html#what-is-a-tree",
+    "title": "Programming Practice: Lab 4",
+    "section": "What is a tree?",
+    "text": "What is a tree?\nTree is a graph-like structure, composed of nodes, where:\n\nthere must be a root node\neach node (including root) has 0 or more children.\n\nWe can build a tree in Python. First, we define a tree node:\nclass Node:\n    def __init__(self, value):\n        self.value = value\n        self.children = []\nA binary tree is a tree where each node has no more than 2 children.\nclass Node:\n    def __init__(self, value):\n        self.left = None\n        self.right = None\n        self.value = key\nA binary search tree is a binary tree where \\(\\forall ~\\text{node}: \\text{left\\_descendents} \\leq node &lt; \\text{right\\_descendents}\\).\n\nA complete tree is a tree where each level is fully filled, possibly except for the last level.\nA full tree is a binary tree where each node has either 0 or 2 children.\nA perfect tree is a complete and full tree."
+  },
+  {
+    "objectID": "lab4.html#tree-traversal-types",
+    "href": "lab4.html#tree-traversal-types",
+    "title": "Programming Practice: Lab 4",
+    "section": "Tree traversal types",
+    "text": "Tree traversal types\nNow that we know what is a tree, we also need to know how to iterate through it (or traverse).\nThere are several types:\n\nPre-order\nprocess(node.value)\ntraverse(node.left)\ntraverse(node.right)\n\n\nIn-order\ntraverse(node.left)\nprocess(node.value)\ntraverse(node.right)\n\n\nPost-order\ntraverse(node.left)\ntraverse(node.right)\nprocess(node.value)"
+  },
+  {
+    "objectID": "lab5.html",
+    "href": "lab5.html",
+    "title": "Programming Practice: Lab 5",
+    "section": "",
+    "text": "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github\nLive editor: https://markdownlivepreview.com\n\n\n\n\n\nDocs: https://mermaid.js.org/intro/\nLive editor: https://mermaid.live"
+  },
+  {
+    "objectID": "lab5.html#markdown",
+    "href": "lab5.html#markdown",
+    "title": "Programming Practice: Lab 5",
+    "section": "",
+    "text": "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github\nLive editor: https://markdownlivepreview.com"
+  },
+  {
+    "objectID": "lab5.html#mermaid",
+    "href": "lab5.html#mermaid",
+    "title": "Programming Practice: Lab 5",
+    "section": "",
+    "text": "Docs: https://mermaid.js.org/intro/\nLive editor: https://mermaid.live"
   },
   {
     "objectID": "lab3.html",
@@ -61,5 +89,26 @@
     "title": "Programming Practice: Lab 2",
     "section": "",
     "text": "Git Fundamentals\n\nInstall Git for Windows.\nRun Git Bash.\nCreate a test directory: mkdir test.\nNavigate to test directory: cd test.\nCreate a test file: echo \"test contents\" &gt; test.txt.\nInitialize a Git repo: git init.\nCheck Git repo status: git status.\nAdd the test file: git add test.txt.\nCommit the test file: git commit -m \"Commit message\"\n\n\nGit will complain that it doesn’t know who you are. Update your name and email per it’s instructions.\n\n\nNavigate to GitHub and create your account and repository.\nCopy repository URL and set it in your local repo via git remote add origin &lt;GITHUB_REPO_URL&gt;.\nPush your local changes to remote repo: git push -u origin master.\n\n\nNote that -u option is only needed the first time you’re doing the push in any local branch.\n\n\n\nRecommended reading:\n\nhttps://git-scm.com/book/en/v2\n\n\n\nExercises\nTask 1. Create a repo for BlockProcessor task and push it to GitHub."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Programming practice",
+    "section": "",
+    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 4"
+  },
+  {
+    "objectID": "index.html#labs",
+    "href": "index.html#labs",
+    "title": "Programming practice",
+    "section": "",
+    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 4"
+  },
+  {
+    "objectID": "index.html#assessment",
+    "href": "index.html#assessment",
+    "title": "Programming practice",
+    "section": "Assessment",
+    "text": "Assessment\n\n2 points max for each lesson\n4 points max for each lab (if submitted later than 2 weeks deadline, max points is 2)\n\nHence, max points to score during semester is \\((2+4)*16 = 96\\)."
   }
 ]

@@ -17,7 +17,7 @@ title: "Programming practice"
 [Lab 4](./lab4.qmd)
 
 ### Lab 5: Markdown + Mermaid
-[Lab 4](./lab4.qmd)
+[Lab 5](./lab5.qmd)
 
 ## Assessment
 

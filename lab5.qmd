@@ -1,0 +1,37 @@
+---
+title: "Programming Practice: Lab 5"
+execute:
+  enabled: true
+  echo: true
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+# Documentation
+
+## Markdown
+1. https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github
+2. Live editor: https://markdownlivepreview.com
+
+## Mermaid
+
+1. Docs: https://mermaid.js.org/intro/
+2. Live editor: https://mermaid.live
+
+# Exercises
+
+**Task 1**. Create a `README.md` file for your repository:
+
+  - describe project structure
+  - draw a Mermaid flowchart diagram for the project

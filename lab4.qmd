@@ -1,0 +1,143 @@
+---
+title: "Programming Practice: Lab 4"
+execute:
+  enabled: true
+  echo: true
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+      header-includes:
+        - '\usetikzlibrary{graphs}'
+        - '\usetikzlibrary{graphdrawing}'
+        - '\usegdlibrary{trees}'
+filters:
+  - diagram
+---
+
+# Git Merge
+How does one create a branch?
+```
+git branch some_branch
+```
+
+Then, in order to merge `some_branch` into `master`, one can do:
+```
+git checkout master
+git merge some_branch
+```
+Alternatively, instead of `git merge`, a (preferred way) is rebasing:
+
+Inside `some_branch`:
+```
+git rebase -i master
+```
+
+And then
+
+```
+git checkout master
+git merge some_branch
+```
+In this case, `git merge` will be a fast-forward merge, and no merge commit will be created.
+
+
+## Recommended reading
+
+1. https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+2. https://git-scm.com/book/en/v2/Git-Branching-Rebasing
+
+# BlockProcessor: extending
+
+We will add an additional field to blocks: `value`
+```{mermaid}
+block-beta
+  block
+    columns 1
+    id["id: hexadecimal string"]
+    view["view: positive integer"]
+    value["value: float"]
+  end
+```
+We will use these values for building a `tree`.
+
+## What is a tree?
+Tree is a graph-like structure, composed of nodes, where:
+
+- there must be a root node
+- each node (including root) has 0 or more children.
+
+We can build a tree in Python. First, we define a tree node:
+```python
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.children = []
+
+```
+
+A **binary tree** is a tree where each node has no more than 2 children.
+```python
+class Node:
+    def __init__(self, value):
+        self.left = None
+        self.right = None
+        self.value = key
+```
+
+A **binary search tree** is a binary tree where $\forall ~\text{node}: \text{left\_descendents} \leq node < \text{right\_descendents}$.
+
+```tikz{width=300}
+\tikz [tree layout, sibling distance=8mm]
+  \graph [nodes={circle, draw, inner sep=1.5pt}]{
+    1 -- { 2 -- 3 -- { 4 -- 5, 6 -- { 7, 8, 9 }}, 10 -- 11 -- { 12, 13 } }
+  };
+```
+A **complete tree** is a tree where each level is fully filled, possibly except for the last level.
+
+A **full tree** is a binary tree where each node has either 0 or 2 children.
+
+A **perfect tree** is a complete and full tree.
+
+
+
+## Tree traversal types
+
+Now that we know what is a tree, we also need to know how to iterate through it (or **traverse**).
+
+There are several types:
+
+### Pre-order 
+```
+process(node.value)
+traverse(node.left)
+traverse(node.right)
+```
+### In-order 
+```
+traverse(node.left)
+process(node.value)
+traverse(node.right)
+```
+### Post-order 
+```
+traverse(node.left)
+traverse(node.right)
+process(node.value)
+```
+
+
+
+# Exercises
+**Task 1**. Once the chain is built, we need to construct a binary search tree based on block values. Once the tree is constructed, please print its type (complete/full/perfect)
+
+**Task 2**. Implement pre/in/post-order traversal and print all values.
+
+**Task 3**. Split into pairs. Publish your GitHub PR into your partner's repository, and vice versa.

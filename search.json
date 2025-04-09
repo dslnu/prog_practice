@@ -56,6 +56,13 @@
     "text": "Docs: https://mermaid.js.org/intro/\nLive editor: https://mermaid.live"
   },
   {
+    "objectID": "lab6.html",
+    "href": "lab6.html",
+    "title": "Programming Practice: Lab 6",
+    "section": "",
+    "text": "SQL intro\n\n\nExercises\nTask 1."
+  },
+  {
     "objectID": "lab3.html",
     "href": "lab3.html",
     "title": "Programming Practice: Lab 3",
@@ -91,18 +98,46 @@
     "text": "Git Fundamentals\n\nInstall Git for Windows.\nRun Git Bash.\nCreate a test directory: mkdir test.\nNavigate to test directory: cd test.\nCreate a test file: echo \"test contents\" &gt; test.txt.\nInitialize a Git repo: git init.\nCheck Git repo status: git status.\nAdd the test file: git add test.txt.\nCommit the test file: git commit -m \"Commit message\"\n\n\nGit will complain that it doesn’t know who you are. Update your name and email per it’s instructions.\n\n\nNavigate to GitHub and create your account and repository.\nCopy repository URL and set it in your local repo via git remote add origin &lt;GITHUB_REPO_URL&gt;.\nPush your local changes to remote repo: git push -u origin master.\n\n\nNote that -u option is only needed the first time you’re doing the push in any local branch.\n\n\n\nRecommended reading:\n\nhttps://git-scm.com/book/en/v2\n\n\n\nExercises\nTask 1. Create a repo for BlockProcessor task and push it to GitHub."
   },
   {
+    "objectID": "lab7.html",
+    "href": "lab7.html",
+    "title": "Programming Practice: Lab 7",
+    "section": "",
+    "text": "import requests\n\n# Fetch url\nr = requests.get('https://wikipedia.org')\n# Response headers\nr.headers\n# Response Content\nr.text\n# OR\nr.json()\n\n\n\n# load additional Python module\nimport socket, sys\n\n\nmode = sys.argv[1]\n\n# create TCP/IP socket\nsock = socket.socket()\n\nport = 25002\nprint ('starting up on port ', port)\nsock.bind(('localhost', port))\n\nsock.listen(1)\n\nwhile True:\n    # wait for a connection\n    print ('waiting for a connection')\n    connection, client_address = sock.accept()\n\n    try:\n        # show who connected to us\n        print ('connection from', client_address)\n\n        # receive the data in small chunks and print it\n        while True:\n            data = connection.recv(512).decode()\n            if data:\n                # output received data\n                print (\"Data: \", data)\n            else:\n                # no more data -- quit the loop\n                print (\"no more data.\")\n                break\n\n    finally:\n        # Clean up the connection\n        connection.close()\n\nsock.close()\n\n\n\nimport socket\n\nclient_socket = socket.socket()\nport = 25002\nclient_socket.connect(('localhost', port))\nwhile True:\n    data = input(\"input msg (q to quit):\")\n\n    client_socket.sendall(data)\n    if data.lower() == 'q':\n        client_socket.close()\n        break"
+  },
+  {
+    "objectID": "lab7.html#fetching-website-data",
+    "href": "lab7.html#fetching-website-data",
+    "title": "Programming Practice: Lab 7",
+    "section": "",
+    "text": "import requests\n\n# Fetch url\nr = requests.get('https://wikipedia.org')\n# Response headers\nr.headers\n# Response Content\nr.text\n# OR\nr.json()"
+  },
+  {
+    "objectID": "lab7.html#server",
+    "href": "lab7.html#server",
+    "title": "Programming Practice: Lab 7",
+    "section": "",
+    "text": "# load additional Python module\nimport socket, sys\n\n\nmode = sys.argv[1]\n\n# create TCP/IP socket\nsock = socket.socket()\n\nport = 25002\nprint ('starting up on port ', port)\nsock.bind(('localhost', port))\n\nsock.listen(1)\n\nwhile True:\n    # wait for a connection\n    print ('waiting for a connection')\n    connection, client_address = sock.accept()\n\n    try:\n        # show who connected to us\n        print ('connection from', client_address)\n\n        # receive the data in small chunks and print it\n        while True:\n            data = connection.recv(512).decode()\n            if data:\n                # output received data\n                print (\"Data: \", data)\n            else:\n                # no more data -- quit the loop\n                print (\"no more data.\")\n                break\n\n    finally:\n        # Clean up the connection\n        connection.close()\n\nsock.close()"
+  },
+  {
+    "objectID": "lab7.html#client",
+    "href": "lab7.html#client",
+    "title": "Programming Practice: Lab 7",
+    "section": "",
+    "text": "import socket\n\nclient_socket = socket.socket()\nport = 25002\nclient_socket.connect(('localhost', port))\nwhile True:\n    data = input(\"input msg (q to quit):\")\n\n    client_socket.sendall(data)\n    if data.lower() == 'q':\n        client_socket.close()\n        break"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Programming practice",
     "section": "",
-    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5"
+    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5\n\n\n\nLab 6\n\n\n\nLab 7"
   },
   {
     "objectID": "index.html#labs",
     "href": "index.html#labs",
     "title": "Programming practice",
     "section": "",
-    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5"
+    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5\n\n\n\nLab 6\n\n\n\nLab 7"
   },
   {
     "objectID": "index.html#assessment",

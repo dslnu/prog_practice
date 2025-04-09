@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming practice – prog_practice</title>
+<title>Programming Practice: Lab 7 – prog_practice</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -67,35 +101,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -118,7 +123,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -141,17 +146,14 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#labs" id="toc-labs" class="nav-link active" data-scroll-target="#labs">Labs</a>
+  <li><a href="#networking" id="toc-networking" class="nav-link active" data-scroll-target="#networking">Networking</a>
   <ul class="collapse">
-  <li><a href="#lab-1-block-processor" id="toc-lab-1-block-processor" class="nav-link" data-scroll-target="#lab-1-block-processor">Lab 1: Block processor</a></li>
-  <li><a href="#lab-2-git-intro" id="toc-lab-2-git-intro" class="nav-link" data-scroll-target="#lab-2-git-intro">Lab 2: Git intro</a></li>
-  <li><a href="#lab-3-regular-expressions" id="toc-lab-3-regular-expressions" class="nav-link" data-scroll-target="#lab-3-regular-expressions">Lab 3: Regular Expressions</a></li>
-  <li><a href="#lab-4-git-merges-blockprocessor-extension" id="toc-lab-4-git-merges-blockprocessor-extension" class="nav-link" data-scroll-target="#lab-4-git-merges-blockprocessor-extension">Lab 4: Git Merges + BlockProcessor extension</a></li>
-  <li><a href="#lab-5-markdown-mermaid" id="toc-lab-5-markdown-mermaid" class="nav-link" data-scroll-target="#lab-5-markdown-mermaid">Lab 5: Markdown + Mermaid</a></li>
-  <li><a href="#lab-6-sql-intro" id="toc-lab-6-sql-intro" class="nav-link" data-scroll-target="#lab-6-sql-intro">Lab 6: SQL intro</a></li>
-  <li><a href="#lab-7-networking-intro" id="toc-lab-7-networking-intro" class="nav-link" data-scroll-target="#lab-7-networking-intro">Lab 7: Networking intro</a></li>
+  <li><a href="#fetching-website-data" id="toc-fetching-website-data" class="nav-link" data-scroll-target="#fetching-website-data">Fetching website data</a></li>
+  <li><a href="#server" id="toc-server" class="nav-link" data-scroll-target="#server">Server</a></li>
+  <li><a href="#client" id="toc-client" class="nav-link" data-scroll-target="#client">Client</a></li>
   </ul></li>
-  <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#recommended-reading" id="toc-recommended-reading" class="nav-link" data-scroll-target="#recommended-reading">Recommended reading</a></li>
   </ul>
 </nav>
     </div>
@@ -160,7 +162,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Programming practice</h1>
+<h1 class="title">Programming Practice: Lab 7</h1>
 </div>
 
 
@@ -177,44 +179,104 @@ window.Quarto = {
 </header>
 
 
-<section id="labs" class="level2">
-<h2 class="anchored" data-anchor-id="labs">Labs</h2>
-<section id="lab-1-block-processor" class="level3">
-<h3 class="anchored" data-anchor-id="lab-1-block-processor">Lab 1: Block processor</h3>
-<p><a href="./lab1.html">Lab 1</a></p>
+<section id="networking" class="level1">
+<h1>Networking</h1>
+<section id="fetching-website-data" class="level2">
+<h2 class="anchored" data-anchor-id="fetching-website-data">Fetching website data</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch url</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> requests.get(<span class="st">'https://wikipedia.org'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Response headers</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>r.headers</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Response Content</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>r.text</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># OR</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>r.json()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="lab-2-git-intro" class="level3">
-<h3 class="anchored" data-anchor-id="lab-2-git-intro">Lab 2: Git intro</h3>
-<p><a href="./lab2.html">Lab 2</a></p>
+<section id="server" class="level2">
+<h2 class="anchored" data-anchor-id="server">Server</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load additional Python module</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> socket, sys</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>mode <span class="op">=</span> sys.argv[<span class="dv">1</span>]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># create TCP/IP socket</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>sock <span class="op">=</span> socket.socket()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>port <span class="op">=</span> <span class="dv">25002</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">'starting up on port '</span>, port)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>sock.bind((<span class="st">'localhost'</span>, port))</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>sock.listen(<span class="dv">1</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># wait for a connection</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span> (<span class="st">'waiting for a connection'</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    connection, client_address <span class="op">=</span> sock.accept()</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># show who connected to us</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span> (<span class="st">'connection from'</span>, client_address)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># receive the data in small chunks and print it</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>            data <span class="op">=</span> connection.recv(<span class="dv">512</span>).decode()</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> data:</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>                <span class="co"># output received data</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span> (<span class="st">"Data: "</span>, data)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>                <span class="co"># no more data -- quit the loop</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span> (<span class="st">"no more data."</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">finally</span>:</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Clean up the connection</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>        connection.close()</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>sock.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="lab-3-regular-expressions" class="level3">
-<h3 class="anchored" data-anchor-id="lab-3-regular-expressions">Lab 3: Regular Expressions</h3>
-<p><a href="./lab3.html">Lab 3</a></p>
-</section>
-<section id="lab-4-git-merges-blockprocessor-extension" class="level3">
-<h3 class="anchored" data-anchor-id="lab-4-git-merges-blockprocessor-extension">Lab 4: Git Merges + BlockProcessor extension</h3>
-<p><a href="./lab4.html">Lab 4</a></p>
-</section>
-<section id="lab-5-markdown-mermaid" class="level3">
-<h3 class="anchored" data-anchor-id="lab-5-markdown-mermaid">Lab 5: Markdown + Mermaid</h3>
-<p><a href="./lab5.html">Lab 5</a></p>
-</section>
-<section id="lab-6-sql-intro" class="level3">
-<h3 class="anchored" data-anchor-id="lab-6-sql-intro">Lab 6: SQL intro</h3>
-<p><a href="./lab6.html">Lab 6</a></p>
-</section>
-<section id="lab-7-networking-intro" class="level3">
-<h3 class="anchored" data-anchor-id="lab-7-networking-intro">Lab 7: Networking intro</h3>
-<p><a href="./lab7.html">Lab 7</a></p>
+<section id="client" class="level2">
+<h2 class="anchored" data-anchor-id="client">Client</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> socket</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>client_socket <span class="op">=</span> socket.socket()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>port <span class="op">=</span> <span class="dv">25002</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>client_socket.<span class="ex">connect</span>((<span class="st">'localhost'</span>, port))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> <span class="bu">input</span>(<span class="st">"input msg (q to quit):"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    client_socket.sendall(data)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> data.lower() <span class="op">==</span> <span class="st">'q'</span>:</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        client_socket.close()</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="assessment" class="level2">
-<h2 class="anchored" data-anchor-id="assessment">Assessment</h2>
-<ul>
-<li>2 points max for each lesson</li>
-<li>4 points max for each lab (if submitted later than 2 weeks deadline, max points is 2)</li>
-</ul>
-<p>Hence, max points to score during semester is <span class="math inline">\((2+4)*16 = 96\)</span>.</p>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<p><strong>Task 1</strong>. Write server code that will fetch below data from provided url: - headers - lines matching a given regex</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use JSON as a request body.</p>
+</div>
+</div>
+<p><strong>Task 2.</strong> Improve server code so that it integrates with BlockProcessor and fetches block data given its ID.</p>
+</section>
+<section id="recommended-reading" class="level1">
+<h1>Recommended reading</h1>
+<ol type="1">
+<li>Requests library: <a href="https://docs.python-requests.org/en/latest/index.html" class="uri">https://docs.python-requests.org/en/latest/index.html</a></li>
+<li>JSON library: <a href="https://www.w3schools.com/python/python_json.asp" class="uri">https://www.w3schools.com/python/python_json.asp</a></li>
+</ol>
 
 
 </section>

@@ -19,6 +19,12 @@ title: "Programming practice"
 ### Lab 5: Markdown + Mermaid
 [Lab 5](./lab5.qmd)
 
+### Lab 6: SQL intro
+[Lab 6](./lab6.qmd)
+
+### Lab 7: Networking intro
+[Lab 7](./lab7.qmd)
+
 ## Assessment
 
 - 2 points max for each lesson

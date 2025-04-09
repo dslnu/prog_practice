@@ -1,0 +1,113 @@
+---
+title: "Programming Practice: Lab 7"
+execute:
+  enabled: true
+  echo: true
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+# Networking
+
+## Fetching website data
+```python
+import requests
+
+# Fetch url
+r = requests.get('https://wikipedia.org')
+# Response headers
+r.headers
+# Response Content
+r.text
+# OR
+r.json()
+```
+## Server
+```python
+# load additional Python module
+import socket, sys
+
+
+mode = sys.argv[1]
+
+# create TCP/IP socket
+sock = socket.socket()
+
+port = 25002
+print ('starting up on port ', port)
+sock.bind(('localhost', port))
+
+sock.listen(1)
+
+while True:
+    # wait for a connection
+    print ('waiting for a connection')
+    connection, client_address = sock.accept()
+
+    try:
+        # show who connected to us
+        print ('connection from', client_address)
+
+        # receive the data in small chunks and print it
+        while True:
+            data = connection.recv(512).decode()
+            if data:
+                # output received data
+                print ("Data: ", data)
+            else:
+                # no more data -- quit the loop
+                print ("no more data.")
+                break
+
+    finally:
+        # Clean up the connection
+        connection.close()
+
+sock.close()
+```
+
+## Client
+```python
+import socket
+
+client_socket = socket.socket()
+port = 25002
+client_socket.connect(('localhost', port))
+while True:
+    data = input("input msg (q to quit):")
+
+    client_socket.sendall(data)
+    if data.lower() == 'q':
+        client_socket.close()
+        break
+
+```
+
+
+# Exercises
+
+**Task 1**. Write server code that will fetch below data from provided url:
+  - headers
+  - lines matching a given regex
+
+:::{.callout-note}
+Use JSON as a request body.
+:::
+
+**Task 2.** Improve server code so that it integrates with BlockProcessor and fetches block data given its ID.
+
+# Recommended reading
+
+1. Requests library: <https://docs.python-requests.org/en/latest/index.html>
+2. JSON library: <https://www.w3schools.com/python/python_json.asp>

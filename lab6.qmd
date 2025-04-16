@@ -20,6 +20,24 @@ filters:
 
 # SQL intro
 
+In this lab we will extend BlockProcessor code with SQLite embedded database support.
+
 # Exercises
 
-**Task 1**. 
+**Task 1**. Add sqlite tables for `BLOCKS` and `VOTES`, together with a Python class handling DB manipulation. 
+**Task 2**. Add a new table - `PERSON`. This will have the following fields:
+
+- `name`: string
+- `birth_year`: integer
+- `ip_addr`: string
+
+**Task 3**. Extend `VOTES` with `person_id` field being a foreign key to `PERSON`.
+
+
+:::{.callout-Note}
+All above tasks should have corresponding methods in Python code.
+:::
+
+# Recommended reading
+
+1. SQLite tutorial: <https://docs.python.org/3/library/sqlite3.html#sqlite3-tutorial>

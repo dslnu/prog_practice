@@ -114,6 +114,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#sql-intro" id="toc-sql-intro" class="nav-link active" data-scroll-target="#sql-intro">SQL intro</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#recommended-reading" id="toc-recommended-reading" class="nav-link" data-scroll-target="#recommended-reading">Recommended reading</a></li>
   </ul>
 </nav>
     </div>
@@ -141,10 +142,26 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="sql-intro" class="level1">
 <h1>SQL intro</h1>
+<p>In this lab we will extend BlockProcessor code with SQLite embedded database support.</p>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
-<p><strong>Task 1</strong>.</p>
+<p><strong>Task 1</strong>. Add sqlite tables for <code>BLOCKS</code> and <code>VOTES</code>, together with a Python class handling DB manipulation. <strong>Task 2</strong>. Add a new table - <code>PERSON</code>. This will have the following fields:</p>
+<ul>
+<li><code>name</code>: string</li>
+<li><code>birth_year</code>: integer</li>
+<li><code>ip_addr</code>: string</li>
+</ul>
+<p><strong>Task 3</strong>. Extend <code>VOTES</code> with <code>person_id</code> field being a foreign key to <code>PERSON</code>.</p>
+<div class="callout-Note">
+<p>All above tasks should have corresponding methods in Python code.</p>
+</div>
+</section>
+<section id="recommended-reading" class="level1">
+<h1>Recommended reading</h1>
+<ol type="1">
+<li>SQLite tutorial: <a href="https://docs.python.org/3/library/sqlite3.html#sqlite3-tutorial" class="uri">https://docs.python.org/3/library/sqlite3.html#sqlite3-tutorial</a></li>
+</ol>
 
 
 </section>

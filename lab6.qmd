@@ -25,6 +25,7 @@ In this lab we will extend BlockProcessor code with SQLite embedded database sup
 # Exercises
 
 **Task 1**. Add sqlite tables for `BLOCKS` and `VOTES`, together with a Python class handling DB manipulation. 
+
 **Task 2**. Add a new table - `PERSON`. This will have the following fields:
 
 - `name`: string

@@ -60,7 +60,7 @@
     "href": "lab6.html",
     "title": "Programming Practice: Lab 6",
     "section": "",
-    "text": "SQL intro\nIn this lab we will extend BlockProcessor code with SQLite embedded database support.\n\n\nExercises\nTask 1. Add sqlite tables for BLOCKS and VOTES, together with a Python class handling DB manipulation. Task 2. Add a new table - PERSON. This will have the following fields:\n\nname: string\nbirth_year: integer\nip_addr: string\n\nTask 3. Extend VOTES with person_id field being a foreign key to PERSON.\n\nAll above tasks should have corresponding methods in Python code.\n\n\n\nRecommended reading\n\nSQLite tutorial: https://docs.python.org/3/library/sqlite3.html#sqlite3-tutorial"
+    "text": "SQL intro\nIn this lab we will extend BlockProcessor code with SQLite embedded database support.\n\n\nExercises\nTask 1. Add sqlite tables for BLOCKS and VOTES, together with a Python class handling DB manipulation.\nTask 2. Add a new table - PERSON. This will have the following fields:\n\nname: string\nbirth_year: integer\nip_addr: string\n\nTask 3. Extend VOTES with person_id field being a foreign key to PERSON.\n\nAll above tasks should have corresponding methods in Python code.\n\n\n\nRecommended reading\n\nSQLite tutorial: https://docs.python.org/3/library/sqlite3.html#sqlite3-tutorial"
   },
   {
     "objectID": "lab3.html",

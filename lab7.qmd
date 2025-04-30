@@ -20,26 +20,15 @@ filters:
 
 # Networking
 
-## Fetching website data
-```python
-import requests
+In this lab we will simulate networking communication between client and server, where server will do somemeaningful work the client per its `request` and will give back some `response`.
 
-# Fetch url
-r = requests.get('https://wikipedia.org')
-# Response headers
-r.headers
-# Response Content
-r.text
-# OR
-r.json()
-```
 ## Server
+Create `server.py` file with the following content:
+
 ```python
 # load additional Python module
 import socket, sys
 
-
-mode = sys.argv[1]
 
 # create TCP/IP socket
 sock = socket.socket()
@@ -78,6 +67,8 @@ sock.close()
 ```
 
 ## Client
+Create `client.py` file with the following content:
+
 ```python
 import socket
 
@@ -94,10 +85,28 @@ while True:
 
 ```
 
+## Fetching website data
+We can use the following template code to fetch data given its URL:
+
+```python
+import requests
+
+# Fetch url
+r = requests.get('https://wikipedia.org')
+# Response headers
+r.headers
+# Response Content
+r.text
+# OR
+r.json()
+```
+
+
 
 # Exercises
 
 **Task 1**. Write server code that will fetch below data from provided url:
+
   - headers
   - lines matching a given regex
 

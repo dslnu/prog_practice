@@ -1,0 +1,80 @@
+---
+title: "Programming Practice: Term project"
+execute:
+  enabled: true
+  echo: true
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+# Description
+
+The idea is to develop a simple 1-on-1 messaging app.
+
+It will contain the following components:
+
+- client
+- server
+- database
+- analytics module
+
+## Client
+We should use [Textual](https://textual.textualize.io) for the UI.
+
+Client->Server communication should be setup via REST API calls.
+
+## Server
+Will have two modules:
+
+- **client interaction**. This will be performed via REST API interface mentioned above.
+  Libraries like 
+  - [FastAPI](https://github.com/FastAPI/FastAPI),
+  - [Django](https://www.djangoproject.com),
+  - or [Flask](https://flask.palletsprojects.com/en/stable/),
+
+  are all good.
+- **database**. Please use SQLite.
+
+## Database
+An embedded Sqlite database running on server. Should contain the following information:
+
+- registered users (clients)
+- messages, that should, in addition to message text, contain timestamps and delivery status (delivered/read)
+- relation between messages and clients
+
+## Analytics
+Can be a simple Python script that can generate usage statistics plots based on SQLite database information. Useful info includes:
+
+- number of messages sent per client
+- temporal frequency of messages
+- average message length
+- anything else you can think of
+
+# Project deliverables
+
+1. Working message delivery with minimum 3 users.
+2. Project documentation: architecture, description, diagrams (Markdown/Mermaid)
+3. Jupyter notebook showing analytics code and results.
+4. Bonus points for automated tests.
+
+# Grading
+Max 40 points.
+
+# Code example
+
+Necessary libraries:
+```python
+pip install fastapi
+pip install "fastapi[standard]"
+pip install requests
+```

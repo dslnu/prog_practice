@@ -25,6 +25,12 @@ title: "Programming practice"
 ### Lab 7: Networking intro
 [Lab 7](./lab7.qmd)
 
+### Lab 8: Networking 2
+[Lab 8](./lab8.qmd)
+
+### Term project: 1-on-1 messaging app
+[Project](./project.qmd)
+
 ## Assessment
 
 - 2 points max for each lesson

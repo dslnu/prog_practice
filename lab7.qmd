@@ -114,8 +114,6 @@ r.json()
 Use JSON as a request body.
 :::
 
-**Task 2.** Improve server code so that it integrates with BlockProcessor and fetches block data given its ID.
-
 # Recommended reading
 
 1. Requests library: <https://docs.python-requests.org/en/latest/index.html>

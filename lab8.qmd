@@ -1,0 +1,28 @@
+---
+title: "Programming Practice: Lab 8"
+execute:
+  enabled: true
+  echo: true
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+# Exercises
+
+**Task 1**. Continue from where Lab 7 left off. Improve server code so that it integrates with BlockProcessor and fetches block data given its ID.
+
+# Recommended reading
+
+1. Requests library: <https://docs.python-requests.org/en/latest/index.html>
+2. JSON library: <https://www.w3schools.com/python/python_json.asp>

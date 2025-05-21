@@ -1,10 +1,45 @@
 [
   {
-    "objectID": "nb/Untitled.html",
-    "href": "nb/Untitled.html",
-    "title": "prog_practice",
+    "objectID": "project.html",
+    "href": "project.html",
+    "title": "Programming Practice: Term project",
     "section": "",
-    "text": "block1={\n  'id': '0x54b',\n  'view': 0\n}\nblock2={\n  'id': '0xfe3',\n  'view': 1\n}\nblock3={\n  'id': '0xab8',\n  'view': 1\n}\n\nvote={\n    'block_id': '0x234343'\n}\n\nchain = [block1, block2, block3]\n\n\nprint(chain)\n\n[{'id': '0x54b', 'view': 0}, {'id': '0xfe3', 'view': 1}, {'id': '0xab8', 'view': 1}]\n\n\n\nimport re\n\n\nre.findall(r'\\w+', \"abcd023\")\n\n['abcd023']\n\n\n\n\\"
+    "text": "The idea is to develop a simple 1-on-1 messaging app.\nIt will contain the following components:\n\nclient\nserver\ndatabase\nanalytics module\n\n\n\nWe should use Textual for the UI.\nClient-&gt;Server communication should be setup via REST API calls.\n\n\n\nWill have two modules:\n\nclient interaction. This will be performed via REST API interface mentioned above. Libraries like\n\nFastAPI,\nDjango,\nor Flask,\n\nare all good.\ndatabase. Please use SQLite.\n\n\n\n\nAn embedded Sqlite database running on server. Should contain the following information:\n\nregistered users (clients)\nmessages, that should, in addition to message text, contain timestamps and delivery status (delivered/read)\nrelation between messages and clients\n\n\n\n\nCan be a simple Python script that can generate usage statistics plots based on SQLite database information. Useful info includes:\n\nnumber of messages sent per client\ntemporal frequency of messages\naverage message length\nanything else you can think of"
+  },
+  {
+    "objectID": "project.html#client",
+    "href": "project.html#client",
+    "title": "Programming Practice: Term project",
+    "section": "",
+    "text": "We should use Textual for the UI.\nClient-&gt;Server communication should be setup via REST API calls."
+  },
+  {
+    "objectID": "project.html#server",
+    "href": "project.html#server",
+    "title": "Programming Practice: Term project",
+    "section": "",
+    "text": "Will have two modules:\n\nclient interaction. This will be performed via REST API interface mentioned above. Libraries like\n\nFastAPI,\nDjango,\nor Flask,\n\nare all good.\ndatabase. Please use SQLite."
+  },
+  {
+    "objectID": "project.html#database",
+    "href": "project.html#database",
+    "title": "Programming Practice: Term project",
+    "section": "",
+    "text": "An embedded Sqlite database running on server. Should contain the following information:\n\nregistered users (clients)\nmessages, that should, in addition to message text, contain timestamps and delivery status (delivered/read)\nrelation between messages and clients"
+  },
+  {
+    "objectID": "project.html#analytics",
+    "href": "project.html#analytics",
+    "title": "Programming Practice: Term project",
+    "section": "",
+    "text": "Can be a simple Python script that can generate usage statistics plots based on SQLite database information. Useful info includes:\n\nnumber of messages sent per client\ntemporal frequency of messages\naverage message length\nanything else you can think of"
+  },
+  {
+    "objectID": "lab8.html",
+    "href": "lab8.html",
+    "title": "Programming Practice: Lab 8",
+    "section": "",
+    "text": "Exercises\nTask 1. Continue from where Lab 7 left off. Improve server code so that it integrates with BlockProcessor and fetches block data given its ID.\n\n\nRecommended reading\n\nRequests library: https://docs.python-requests.org/en/latest/index.html\nJSON library: https://www.w3schools.com/python/python_json.asp"
   },
   {
     "objectID": "lab4.html",
@@ -130,14 +165,14 @@
     "href": "index.html",
     "title": "Programming practice",
     "section": "",
-    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5\n\n\n\nLab 6\n\n\n\nLab 7"
+    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5\n\n\n\nLab 6\n\n\n\nLab 7\n\n\n\nLab 8\n\n\n\nProject"
   },
   {
     "objectID": "index.html#labs",
     "href": "index.html#labs",
     "title": "Programming practice",
     "section": "",
-    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5\n\n\n\nLab 6\n\n\n\nLab 7"
+    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5\n\n\n\nLab 6\n\n\n\nLab 7\n\n\n\nLab 8\n\n\n\nProject"
   },
   {
     "objectID": "index.html#assessment",
@@ -145,5 +180,12 @@
     "title": "Programming practice",
     "section": "Assessment",
     "text": "Assessment\n\n2 points max for each lesson\n4 points max for each lab (if submitted later than 2 weeks deadline, max points is 2)\n\nHence, max points to score during semester is \\((2+4)*16 = 96\\)."
+  },
+  {
+    "objectID": "nb/Untitled.html",
+    "href": "nb/Untitled.html",
+    "title": "prog_practice",
+    "section": "",
+    "text": "block1={\n  'id': '0x54b',\n  'view': 0\n}\nblock2={\n  'id': '0xfe3',\n  'view': 1\n}\nblock3={\n  'id': '0xab8',\n  'view': 1\n}\n\nvote={\n    'block_id': '0x234343'\n}\n\nchain = [block1, block2, block3]\n\n\nprint(chain)\n\n[{'id': '0x54b', 'view': 0}, {'id': '0xfe3', 'view': 1}, {'id': '0xab8', 'view': 1}]\n\n\n\nimport re\n\n\nre.findall(r'\\w+', \"abcd023\")\n\n['abcd023']\n\n\n\n\\"
   }
 ]

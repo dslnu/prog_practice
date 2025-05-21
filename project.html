@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming Practice – prog_practice</title>
+<title>Programming Practice: Term project – prog_practice</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -94,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">Programming Practice</span></a>
   </li>  
 </ul>
@@ -108,15 +143,30 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#description" id="toc-description" class="nav-link active" data-scroll-target="#description">Description</a>
+  <ul class="collapse">
+  <li><a href="#client" id="toc-client" class="nav-link" data-scroll-target="#client">Client</a></li>
+  <li><a href="#server" id="toc-server" class="nav-link" data-scroll-target="#server">Server</a></li>
+  <li><a href="#database" id="toc-database" class="nav-link" data-scroll-target="#database">Database</a></li>
+  <li><a href="#analytics" id="toc-analytics" class="nav-link" data-scroll-target="#analytics">Analytics</a></li>
+  </ul></li>
+  <li><a href="#project-deliverables" id="toc-project-deliverables" class="nav-link" data-scroll-target="#project-deliverables">Project deliverables</a></li>
+  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
+  <li><a href="#code-example" id="toc-code-example" class="nav-link" data-scroll-target="#code-example">Code example</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Programming Practice</h1>
+<h1 class="title">Programming Practice: Term project</h1>
 </div>
 
 
@@ -133,8 +183,77 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="description" class="level1">
+<h1>Description</h1>
+<p>The idea is to develop a simple 1-on-1 messaging app.</p>
+<p>It will contain the following components:</p>
+<ul>
+<li>client</li>
+<li>server</li>
+<li>database</li>
+<li>analytics module</li>
+</ul>
+<section id="client" class="level2">
+<h2 class="anchored" data-anchor-id="client">Client</h2>
+<p>We should use <a href="https://textual.textualize.io">Textual</a> for the UI.</p>
+<p>Client-&gt;Server communication should be setup via REST API calls.</p>
+</section>
+<section id="server" class="level2">
+<h2 class="anchored" data-anchor-id="server">Server</h2>
+<p>Will have two modules:</p>
+<ul>
+<li><strong>client interaction</strong>. This will be performed via REST API interface mentioned above. Libraries like
+<ul>
+<li><a href="https://github.com/FastAPI/FastAPI">FastAPI</a>,</li>
+<li><a href="https://www.djangoproject.com">Django</a>,</li>
+<li>or <a href="https://flask.palletsprojects.com/en/stable/">Flask</a>,</li>
+</ul>
+are all good.</li>
+<li><strong>database</strong>. Please use SQLite.</li>
+</ul>
+</section>
+<section id="database" class="level2">
+<h2 class="anchored" data-anchor-id="database">Database</h2>
+<p>An embedded Sqlite database running on server. Should contain the following information:</p>
+<ul>
+<li>registered users (clients)</li>
+<li>messages, that should, in addition to message text, contain timestamps and delivery status (delivered/read)</li>
+<li>relation between messages and clients</li>
+</ul>
+</section>
+<section id="analytics" class="level2">
+<h2 class="anchored" data-anchor-id="analytics">Analytics</h2>
+<p>Can be a simple Python script that can generate usage statistics plots based on SQLite database information. Useful info includes:</p>
+<ul>
+<li>number of messages sent per client</li>
+<li>temporal frequency of messages</li>
+<li>average message length</li>
+<li>anything else you can think of</li>
+</ul>
+</section>
+</section>
+<section id="project-deliverables" class="level1">
+<h1>Project deliverables</h1>
+<ol type="1">
+<li>Working message delivery with minimum 3 users.</li>
+<li>Project documentation: architecture, description, diagrams (Markdown/Mermaid)</li>
+<li>Jupyter notebook showing analytics code and results.</li>
+<li>Bonus points for automated tests.</li>
+</ol>
+</section>
+<section id="grading" class="level1">
+<h1>Grading</h1>
+<p>Max 40 points.</p>
+</section>
+<section id="code-example" class="level1">
+<h1>Code example</h1>
+<p>Necessary libraries:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install fastapi</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pip install <span class="st">"fastapi[standard]"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pip install requests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

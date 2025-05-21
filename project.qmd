@@ -68,13 +68,82 @@ Can be a simple Python script that can generate usage statistics plots based on 
 4. Bonus points for automated tests.
 
 # Grading
-Max 40 points.
+Max 40 points split as follows:
+
+- 10 points for working client
+- 10 points for server
+- 10 points for SQLite database
+- 10 points for analytics and documentation
 
 # Code example
 
 Necessary libraries:
 ```python
-pip install fastapi
-pip install "fastapi[standard]"
-pip install requests
+pip install "fastapi[standard]" # REST API
+pip install pydantic # facilitates JSON parsing for FastAPI
+pip install requests # will be used on the client
 ```
+
+Following is `server.py` script:
+```python
+from typing import Union
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+class Message(BaseModel):
+    msg: str
+
+messages = list()
+
+@app.get("/fetchMessages")
+def fetch_messages():
+    return {"data": messages} #[m for m in messages]}
+
+@app.post("/sendMessage/{msg}")
+def send_message(m: Message):
+    messages.append(m)
+    return {"status": "ok"}
+```
+
+And here is the `client.py` script:
+```python
+import requests
+
+# First send a message
+api_url = "http://localhost:8000/sendMessage/msg"
+msgJson = {"msg": "Whazzuuuppp"}
+response = requests.post(api_url, json=msgJson)
+
+print(response.json())
+
+# Then another
+msgJson = {"msg": "Howdy"}
+response = requests.post(api_url, json=msgJson)
+
+print(response.json())
+
+
+# Now check messages delivered to server
+api_url = "http://localhost:8000/fetchMessages"
+response = requests.get(api_url)
+print(response.json())
+
+```
+Start server with:
+```python
+fastapi dev server.py
+```
+
+Then run client with
+```python
+python client.py
+```
+
+In client shell you should see:
+```python
+{'status': 'ok'}
+{'status': 'ok'}
+{'data': [{'msg': 'Whazzuuuppp'}, {'msg': 'Howdy'}]}
+```
+

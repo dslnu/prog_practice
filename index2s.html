@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming Practice: Lab 4 – prog_practice</title>
+<title>Programming practice – prog_practice</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -103,9 +68,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -162,7 +124,7 @@ window.Quarto = {
 <span class="menu-text">MTM-11 Programming Practice</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./index2s.html"> 
+    <a class="nav-link active" href="./index2s.html" aria-current="page"> 
 <span class="menu-text">MTS-21 Programming Practice</span></a>
   </li>  
   <li class="nav-item">
@@ -189,21 +151,19 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#git-merge" id="toc-git-merge" class="nav-link active" data-scroll-target="#git-merge">Git Merge</a>
+  <li><a href="#labs" id="toc-labs" class="nav-link active" data-scroll-target="#labs">Labs</a>
   <ul class="collapse">
-  <li><a href="#recommended-reading" id="toc-recommended-reading" class="nav-link" data-scroll-target="#recommended-reading">Recommended reading</a></li>
+  <li><a href="#lab-1-block-processor" id="toc-lab-1-block-processor" class="nav-link" data-scroll-target="#lab-1-block-processor">Lab 1: Block processor</a></li>
+  <li><a href="#lab-2-git-intro" id="toc-lab-2-git-intro" class="nav-link" data-scroll-target="#lab-2-git-intro">Lab 2: Git intro</a></li>
+  <li><a href="#lab-3-regular-expressions" id="toc-lab-3-regular-expressions" class="nav-link" data-scroll-target="#lab-3-regular-expressions">Lab 3: Regular Expressions</a></li>
+  <li><a href="#lab-4-git-merges-blockprocessor-extension" id="toc-lab-4-git-merges-blockprocessor-extension" class="nav-link" data-scroll-target="#lab-4-git-merges-blockprocessor-extension">Lab 4: Git Merges + BlockProcessor extension</a></li>
+  <li><a href="#lab-5-markdown-mermaid" id="toc-lab-5-markdown-mermaid" class="nav-link" data-scroll-target="#lab-5-markdown-mermaid">Lab 5: Markdown + Mermaid</a></li>
+  <li><a href="#lab-6-sql-intro" id="toc-lab-6-sql-intro" class="nav-link" data-scroll-target="#lab-6-sql-intro">Lab 6: SQL intro</a></li>
+  <li><a href="#lab-7-networking-intro" id="toc-lab-7-networking-intro" class="nav-link" data-scroll-target="#lab-7-networking-intro">Lab 7: Networking intro</a></li>
+  <li><a href="#lab-8-networking-2" id="toc-lab-8-networking-2" class="nav-link" data-scroll-target="#lab-8-networking-2">Lab 8: Networking 2</a></li>
+  <li><a href="#term-project-1-on-1-messaging-app" id="toc-term-project-1-on-1-messaging-app" class="nav-link" data-scroll-target="#term-project-1-on-1-messaging-app">Term project: 1-on-1 messaging app</a></li>
   </ul></li>
-  <li><a href="#blockprocessor-extending" id="toc-blockprocessor-extending" class="nav-link" data-scroll-target="#blockprocessor-extending">BlockProcessor: extending</a>
-  <ul class="collapse">
-  <li><a href="#what-is-a-tree" id="toc-what-is-a-tree" class="nav-link" data-scroll-target="#what-is-a-tree">What is a tree?</a></li>
-  <li><a href="#tree-traversal-types" id="toc-tree-traversal-types" class="nav-link" data-scroll-target="#tree-traversal-types">Tree traversal types</a>
-  <ul class="collapse">
-  <li><a href="#pre-order" id="toc-pre-order" class="nav-link" data-scroll-target="#pre-order">Pre-order</a></li>
-  <li><a href="#in-order" id="toc-in-order" class="nav-link" data-scroll-target="#in-order">In-order</a></li>
-  <li><a href="#post-order" id="toc-post-order" class="nav-link" data-scroll-target="#post-order">Post-order</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a></li>
   </ul>
 </nav>
     </div>
@@ -212,7 +172,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Programming Practice: Lab 4</h1>
+<h1 class="title">Programming practice</h1>
 </div>
 
 
@@ -229,110 +189,52 @@ window.Quarto = {
 </header>
 
 
-<section id="git-merge" class="level1">
-<h1>Git Merge</h1>
-<p>How does one create a branch?</p>
-<pre><code>git branch some_branch</code></pre>
-<p>Then, in order to merge <code>some_branch</code> into <code>master</code>, one can do:</p>
-<pre><code>git checkout master
-git merge some_branch</code></pre>
-<p>Alternatively, instead of <code>git merge</code>, a (preferred way) is rebasing:</p>
-<p>Inside <code>some_branch</code>:</p>
-<pre><code>git rebase -i master</code></pre>
-<p>And then</p>
-<pre><code>git checkout master
-git merge some_branch</code></pre>
-<p>In this case, <code>git merge</code> will be a fast-forward merge, and no merge commit will be created.</p>
-<section id="recommended-reading" class="level2">
-<h2 class="anchored" data-anchor-id="recommended-reading">Recommended reading</h2>
-<ol type="1">
-<li>https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</li>
-<li>https://git-scm.com/book/en/v2/Git-Branching-Rebasing</li>
-</ol>
+<section id="labs" class="level2">
+<h2 class="anchored" data-anchor-id="labs">Labs</h2>
+<section id="lab-1-block-processor" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-block-processor">Lab 1: Block processor</h3>
+<p><a href="./lab1.html">Lab 1</a></p>
+</section>
+<section id="lab-2-git-intro" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-git-intro">Lab 2: Git intro</h3>
+<p><a href="./lab2.html">Lab 2</a></p>
+</section>
+<section id="lab-3-regular-expressions" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-regular-expressions">Lab 3: Regular Expressions</h3>
+<p><a href="./lab3.html">Lab 3</a></p>
+</section>
+<section id="lab-4-git-merges-blockprocessor-extension" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-git-merges-blockprocessor-extension">Lab 4: Git Merges + BlockProcessor extension</h3>
+<p><a href="./lab4.html">Lab 4</a></p>
+</section>
+<section id="lab-5-markdown-mermaid" class="level3">
+<h3 class="anchored" data-anchor-id="lab-5-markdown-mermaid">Lab 5: Markdown + Mermaid</h3>
+<p><a href="./lab5.html">Lab 5</a></p>
+</section>
+<section id="lab-6-sql-intro" class="level3">
+<h3 class="anchored" data-anchor-id="lab-6-sql-intro">Lab 6: SQL intro</h3>
+<p><a href="./lab6.html">Lab 6</a></p>
+</section>
+<section id="lab-7-networking-intro" class="level3">
+<h3 class="anchored" data-anchor-id="lab-7-networking-intro">Lab 7: Networking intro</h3>
+<p><a href="./lab7.html">Lab 7</a></p>
+</section>
+<section id="lab-8-networking-2" class="level3">
+<h3 class="anchored" data-anchor-id="lab-8-networking-2">Lab 8: Networking 2</h3>
+<p><a href="./lab8.html">Lab 8</a></p>
+</section>
+<section id="term-project-1-on-1-messaging-app" class="level3">
+<h3 class="anchored" data-anchor-id="term-project-1-on-1-messaging-app">Term project: 1-on-1 messaging app</h3>
+<p><a href="./project.html">Project</a></p>
 </section>
 </section>
-<section id="blockprocessor-extending" class="level1">
-<h1>BlockProcessor: extending</h1>
-<p>We will add an additional field to blocks: <code>value</code></p>
-<div class="cell" data-layout-align="default">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>block-beta</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  block</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    columns 1</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    id["id: hexadecimal string"]</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    view["view: positive integer"]</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    value["value: float"]</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  end</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">block-beta
-  block
-    columns 1
-    id["id: hexadecimal string"]
-    view["view: positive integer"]
-    value["value: float"]
-  end
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p>We will use these values for building a <code>tree</code>.</p>
-<section id="what-is-a-tree" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-a-tree">What is a tree?</h2>
-<p>Tree is a graph-like structure, composed of nodes, where:</p>
+<section id="assessment" class="level2">
+<h2 class="anchored" data-anchor-id="assessment">Assessment</h2>
 <ul>
-<li>there must be a root node</li>
-<li>each node (including root) has 0 or more children.</li>
+<li>2 points max for each lesson</li>
+<li>4 points max for each lab (if submitted later than 2 weeks deadline, max points is 2)</li>
 </ul>
-<p>We can build a tree in Python. First, we define a tree node:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Node:</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, value):</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.value <span class="op">=</span> value</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.children <span class="op">=</span> []</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>A <strong>binary tree</strong> is a tree where each node has no more than 2 children.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Node:</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, value):</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.left <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.right <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.value <span class="op">=</span> key</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>A <strong>binary search tree</strong> is a binary tree where <span class="math inline">\(\forall ~\text{node}: \text{left\_descendents} \leq node &lt; \text{right\_descendents}\)</span>.</p>
-<img src="lab4_files/mediabag/375ff0ede1779f448bb644b531ef4139afe5c51e.svg" class="img-fluid" width="300">
-<p>A <strong>complete tree</strong> is a tree where each level is fully filled, possibly except for the last level.</p>
-<p>A <strong>full tree</strong> is a binary tree where each node has either 0 or 2 children.</p>
-<p>A <strong>perfect tree</strong> is a complete and full tree.</p>
-</section>
-<section id="tree-traversal-types" class="level2">
-<h2 class="anchored" data-anchor-id="tree-traversal-types">Tree traversal types</h2>
-<p>Now that we know what is a tree, we also need to know how to iterate through it (or <strong>traverse</strong>).</p>
-<p>There are several types:</p>
-<section id="pre-order" class="level3">
-<h3 class="anchored" data-anchor-id="pre-order">Pre-order</h3>
-<pre><code>process(node.value)
-traverse(node.left)
-traverse(node.right)</code></pre>
-</section>
-<section id="in-order" class="level3">
-<h3 class="anchored" data-anchor-id="in-order">In-order</h3>
-<pre><code>traverse(node.left)
-process(node.value)
-traverse(node.right)</code></pre>
-</section>
-<section id="post-order" class="level3">
-<h3 class="anchored" data-anchor-id="post-order">Post-order</h3>
-<pre><code>traverse(node.left)
-traverse(node.right)
-process(node.value)</code></pre>
-</section>
-</section>
-</section>
-<section id="exercises" class="level1">
-<h1>Exercises</h1>
-<p><strong>Task 1</strong>. Once the chain is built, we need to construct a binary search tree based on block values. Once the tree is constructed, please print its type (complete/full/perfect)</p>
-<p><strong>Task 2</strong>. Implement pre/in/post-order traversal and print all values.</p>
-<p><strong>Task 3</strong>. Split into pairs. Publish your GitHub PR into your partner’s repository, and vice versa.</p>
+<p>Hence, max points to score during semester is <span class="math inline">\((2+4)*16 = 96\)</span>.</p>
 
 
 </section>

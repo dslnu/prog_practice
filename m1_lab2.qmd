@@ -1,0 +1,26 @@
+---
+title: "Programming Practice: Lab 2"
+execute:
+  enabled: true
+  echo: false
+  cache: true
+format:
+  html:
+    code-fold: false
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+## Notes
+1. LaTeX learning resource: <https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes>
+2. List of LaTeX symbols: <https://sites.math.washington.edu/~reu/docs/latex_symbols.pdf>
+
+## Exercises
+1. Complete **easy** exercise sections from <https://web.mit.edu/~jgross/Public/LaTeX/exercises.pdf>
+2. Pick 2 pages from your semester math notes and convert them to LaTeX.

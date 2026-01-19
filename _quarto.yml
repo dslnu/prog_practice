@@ -5,8 +5,12 @@ website:
   title: "prog_practice"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
+      - href: index1m.qmd
+        text: MTM-11 Programming Practice 
+      - href: index2s.qmd
+        text: MTS-21 Programming Practice 
+      - href: index3s.qmd
+        text: MTS-31 Programming Practice 
       - about.qmd
 
 format:

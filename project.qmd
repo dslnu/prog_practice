@@ -67,6 +67,11 @@ Can be a simple Python script that can generate usage statistics plots based on 
 3. Jupyter notebook showing analytics code and results.
 4. Bonus points for automated tests.
 
+More ideas:
+- group chat
+- encryption
+- DB diagram
+
 # Grading
 Max 40 points split as follows:
 

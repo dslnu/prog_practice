@@ -3,3 +3,5 @@
 /cache/
 /venv/
 /nb/
+
+**/*.quarto_ipynb

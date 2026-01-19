@@ -1,0 +1,36 @@
+---
+title: "Programming practice"
+---
+
+## Labs
+
+### Lab 1: LaTeX intro. Basic formatting
+[Lab 1](./m1_lab1.qmd)
+
+### Lab 2 LaTeX math (part 1)
+[Lab 2](./m1_lab2.qmd)
+
+### Lab 3: LaTeX math (part 2)
+[Lab 3](./m1_lab3.qmd)
+
+<!--
+### Lab 4: LaTeX graphics. TikZ (part 1)
+[Lab 4](./m1_lab4.qmd)
+
+### Lab 5: LaTeX graphics. TikZ (part 2)
+[Lab 5](./m1_lab5.qmd)
+
+### Lab 6: Markdown language. Mermaid graphs.
+[Lab 6](./m1_lab6.qmd)
+
+### Lab 7: Quarto publishing system
+[Lab 7](./m1_lab7.qmd)
+
+## Assessment
+
+- 2 points max for each lesson
+- 4 points max for each lab (if submitted later than 2 weeks deadline, max points is 2)
+
+Hence, max points to score during semester is $(2+4)*16 = 96$.
+-->
+

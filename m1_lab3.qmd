@@ -1,0 +1,25 @@
+---
+title: "Programming Practice: Lab 3"
+execute:
+  enabled: true
+  echo: false
+  cache: true
+format:
+  html:
+    code-fold: false
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+## Notes
+1. LaTeX learning resource: <https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes>
+2. List of LaTeX symbols: <https://sites.math.washington.edu/~reu/docs/latex_symbols.pdf>
+
+## Exercises
+1. Complete **medium** difficulty exercises from <https://web.mit.edu/~jgross/Public/LaTeX/exercises.pdf>

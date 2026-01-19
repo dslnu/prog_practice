@@ -1,0 +1,29 @@
+---
+title: "Programming Practice: Lab 1"
+execute:
+  enabled: true
+  echo: false
+  cache: true
+format:
+  html:
+    code-fold: false
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+## Notes
+1. LaTeX learning resource: <https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes>
+2. List of LaTeX symbols: <https://sites.math.washington.edu/~reu/docs/latex_symbols.pdf>
+
+## Exercises
+1. Create an account on Overleaf (<https://www.overleaf.com>)
+2. Create a LaTeX file with your biography. It should contain the following:
+  - sections/subsections
+  - numbered/bulleted lists
+  - bold/italic text sections

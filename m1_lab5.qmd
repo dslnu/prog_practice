@@ -1,0 +1,26 @@
+---
+title: "Programming Practice: Lab 5"
+execute:
+  enabled: true
+  echo: false
+  cache: true
+format:
+  html:
+    code-fold: false
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+## Notes
+1. Overleaf's TikZ intro: <https://www.overleaf.com/learn/latex/TikZ_package>
+2. List of LaTeX symbols: <https://sites.math.washington.edu/~reu/docs/latex_symbols.pdf>
+
+## Exercises
+1. Complete basic TikZ tutorial: <https://tikz.dev/tutorial>
+2. Draw a graph periodic `tanh` function.

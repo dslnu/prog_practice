@@ -1,0 +1,32 @@
+---
+title: "Programming Practice: Lab 3"
+execute:
+  enabled: true
+  echo: false
+  cache: true
+format:
+  html:
+    code-fold: false
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+## Notes
+1. LaTeX learning resource: <https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes>
+2. Beamer Overleaf intro: <https://www.overleaf.com/learn/latex/Beamer>
+
+## Exercises
+1. Read Overleaf's Beamer intro.
+2. Write a Beamer presentation with a biography of a mathematician of your choice.
+  Presentation should include the following elements:
+  - title
+  - several types of boxes
+  - custom theme
+  - images
+  - formulas

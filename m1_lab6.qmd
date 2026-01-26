@@ -23,3 +23,4 @@ filters:
 
 ## Exercises
 1. Draw a Mermaid graph detailing a recipe of your favorite food.
+2. Create a text version of the recipe, which is a Markdown document containing basic syntax elements.

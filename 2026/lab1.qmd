@@ -1,0 +1,55 @@
+---
+title: "Programming Practice: Lab 1"
+execute:
+  enabled: true
+  echo: false
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+## Environment setup
+
+### Required tools
+
+1. uv (<https://docs.astral.sh/uv/getting-started/installation/>)
+2. git (<https://git-scm.com/install/windows>)
+
+### Project setup
+
+1. Run Git Bash, this should be installed as part of "Git for Windows".
+2. `mkdir labs`.
+3. `cd labs`.
+4. `uv init`.
+
+## Lab task
+
+```{mermaid}
+flowchart TD
+    A(Input) -->|read| B[Program]
+    B -->|write| C(Output)
+```
+
+Please write a simple Python script that will sum integers. It should:
+
+1. Access input either as command-line arguments, or as a file
+   - cmd line example: `prog.py 5 6`
+   - file example: `prog.py -f file.txt`
+
+  In case of file argument, each line in a file should contain a number to be added
+
+2. Produce output either to console, or to a file.
+   - console output: just print the number and exit
+   - file output: `prog.py -f file.txt -o out.txt`. In this case `out.txt` should contain the result.
+
+3. For command line argument parsing, use `argparse` (<https://docs.python.org/3/howto/argparse.html>). Bonus points for implementation using `Typer` (<https://typer.tiangolo.com/>)

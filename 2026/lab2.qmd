@@ -1,0 +1,94 @@
+---
+title: "Programming Practice: Lab 2"
+execute:
+  enabled: true
+  echo: false
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+## Preliminary definitions
+
+### Blocks
+By `block` we will mean an object with two fields:
+
+```{mermaid}
+block-beta
+  block
+    columns 1
+    id["id: hexadecimal string"]
+    view["view: positive integer"]
+  end
+```
+Here $\text{view} \in \mathbb{Z}_+$.
+
+### Votes
+By `vote` we will mean a single-field object
+```{mermaid}
+block-beta
+  block_id["block_id: hexadecimal string"]
+```
+
+### Chain
+By `chain` we will mean a sequence of `block` objects which:
+
+  - start from block with `view=0`
+  - are monotonically ordered by `view`
+  - no gaps are allowed, e.g. block with `view=3` cannot follow block with `view=1`
+```{mermaid}
+flowchart LR
+  block1["`**Block 0** <br/> id: 0x54b <br/> view: 0`"] --> block2["`**Block 1** <br/> id: 0xfe3 <br/> view: 1`"] --> block3["`**Block 2** <br/> id: 0xab8 <br/> view: 2`"]
+```
+
+So, for example, here are valid Python representations of these objects:
+```python
+block1={
+  'id': '0x54b',
+  'view': 0
+}
+block2={
+  'id': '0xfe3',
+  'view': 1
+}
+block3={
+  'id': '0xab8',
+  'view': 1
+}
+
+vote={
+    'block_id': '0x234343'
+}
+
+chain = [block1, block2, block3]
+```
+
+
+## Problem
+We need to build a `chain` out of a random sequence of `block`s and `vote`s coming through input.
+We can only add a block with `view=N` to a chain if:
+
+- a vote for block's `id` has been received earlier
+- tip of the chain has the block with `view=N-1`
+
+### Implementation details
+
+Please use two architectures to use when implementing the code:
+
+  - **A0**: class-based
+  - **A1**: functional
+
+And three types of inputs/outputs for the project:
+
+  - **IO0**: use command-line arguments
+  - **IO1**: use CSV files

@@ -316,15 +316,17 @@ window.Quarto = {
 </ul>
 <section id="implementation-details" class="level3">
 <h3 class="anchored" data-anchor-id="implementation-details">Implementation details</h3>
-<p>Please use two architectures to use when implementing the code:</p>
 <ul>
-<li><strong>A0</strong>: class-based</li>
-<li><strong>A1</strong>: functional</li>
-</ul>
-<p>And three types of inputs/outputs for the project:</p>
+<li>You may use either functional or class-based architecture for implementation.</li>
+<li>For the input, please use CSV files.</li>
+<li>CSV files should have the following columns:
 <ul>
-<li><strong>IO0</strong>: use command-line arguments</li>
-<li><strong>IO1</strong>: use CSV files</li>
+<li><code>type</code> (either block or vote)</li>
+<li><code>block_id</code></li>
+<li><code>vote_id</code></li>
+<li><code>view</code></li>
+</ul></li>
+<li>Please read CSV file line-by-line, so that to simulate blocks/votes arriving in random order</li>
 </ul>
 
 

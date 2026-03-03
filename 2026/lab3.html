@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming practice – prog_practice</title>
+<title>Programming Practice: Lab 3 – prog_practice</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,38 +68,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -109,7 +83,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">prog_practice</span>
     </a>
   </div>
@@ -120,19 +94,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index1m.html"> 
+    <a class="nav-link" href="../index1m.html"> 
 <span class="menu-text">MTM-11 Programming Practice</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./index2s.html" aria-current="page"> 
+    <a class="nav-link" href="../index2s.html"> 
 <span class="menu-text">MTS-21 Programming Practice</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./index3s.html"> 
+    <a class="nav-link" href="../index3s.html"> 
 <span class="menu-text">MTS-31 Programming Practice</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">Programming Practice</span></a>
   </li>  
 </ul>
@@ -151,14 +125,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#labs" id="toc-labs" class="nav-link active" data-scroll-target="#labs">Labs</a>
+  <li><a href="#sql-part-1" id="toc-sql-part-1" class="nav-link active" data-scroll-target="#sql-part-1">SQL part 1</a>
   <ul class="collapse">
-  <li><a href="#lab-1-env-setup-command-line-app" id="toc-lab-1-env-setup-command-line-app" class="nav-link" data-scroll-target="#lab-1-env-setup-command-line-app">Lab 1: Env setup; command-line app</a></li>
-  <li><a href="#lab-2-block-processor" id="toc-lab-2-block-processor" class="nav-link" data-scroll-target="#lab-2-block-processor">Lab 2: Block processor</a></li>
-  <li><a href="#lab-3-sql-part-1" id="toc-lab-3-sql-part-1" class="nav-link" data-scroll-target="#lab-3-sql-part-1">Lab 3: SQL part 1</a></li>
-  <li><a href="#lab-4-sql-part-2" id="toc-lab-4-sql-part-2" class="nav-link" data-scroll-target="#lab-4-sql-part-2">Lab 4: SQL part 2</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   </ul></li>
-  <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a></li>
   </ul>
 </nav>
     </div>
@@ -167,7 +138,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Programming practice</h1>
+<h1 class="title">Programming Practice: Lab 3</h1>
 </div>
 
 
@@ -184,34 +155,66 @@ window.Quarto = {
 </header>
 
 
-<section id="labs" class="level2">
-<h2 class="anchored" data-anchor-id="labs">Labs</h2>
-<section id="lab-1-env-setup-command-line-app" class="level3">
-<h3 class="anchored" data-anchor-id="lab-1-env-setup-command-line-app">Lab 1: Env setup; command-line app</h3>
-<p><a href="./2026/lab1.html">Lab 1</a></p>
+<section id="sql-part-1" class="level1">
+<h1>SQL part 1</h1>
+<p>In this lab we will create a simple database backend for the BlockProcessor app.</p>
+<p>This can be coded separately from <a href="../2026/lab2.html">lab2</a> (for now).</p>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>Please read and complete SQLite tutorial at <a href="https://docs.python.org/3/library/sqlite3.html#sqlite3-tutorial" class="uri">https://docs.python.org/3/library/sqlite3.html#sqlite3-tutorial</a></p>
 </section>
-<section id="lab-2-block-processor" class="level3">
-<h3 class="anchored" data-anchor-id="lab-2-block-processor">Lab 2: Block processor</h3>
-<p><a href="./2026/lab2.html">Lab 2</a></p>
-</section>
-<section id="lab-3-sql-part-1" class="level3">
-<h3 class="anchored" data-anchor-id="lab-3-sql-part-1">Lab 3: SQL part 1</h3>
-<p><a href="./2026/lab3.html">Lab 3</a></p>
-</section>
-<section id="lab-4-sql-part-2" class="level3">
-<h3 class="anchored" data-anchor-id="lab-4-sql-part-2">Lab 4: SQL part 2</h3>
-<p><a href="./2026/lab4.html">Lab 4</a></p>
-</section>
-</section>
-<section id="assessment" class="level2">
-<h2 class="anchored" data-anchor-id="assessment">Assessment</h2>
-<ul>
-<li>2 points max for each lesson</li>
-<li>4 points max for each lab (if submitted later than 2 weeks deadline, max points is 2)</li>
-</ul>
-<p>Hence, max points to score during semester is <span class="math inline">\((2+4)*15 = 90\)</span>.</p>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Look at the below entity-relationship (ER) diagram:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+BLOCKS {
+ hexString id
+ integer view
+ string desc
+ blob img
+}
+
+VOTES {
+hexString block_id
+integer voter_id
+datetime timestamp
+integer source_id
+}
+
+PERSONS {
+integer id
+string name
+string addr
+}
+
+SOURCES {
+integer id
+string ip_addr
+string country_code
+}
+
+BLOCKS ||..o{ VOTES : votes
+VOTES }o..|| PERSONS : votes
+SOURCES ||..o{ VOTES : originates
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Please use Python’s SQLite interface and write SQL queries for the following:</p>
+<ol type="1">
+<li><code>CREATE TABLE</code> statements for the above 4 tables.</li>
+<li><code>INSERT INTO</code> statements to insert some test data into the tables.</li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

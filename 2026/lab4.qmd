@@ -32,5 +32,6 @@ Create Python classes for all the 4 entities. You may reuse `Vote`/`Block` class
 
 
 ## Notes
+
 1. SQL `SELECT` examples: <https://www.metabase.com/learn/sql/getting-started/querying-tables>
 2. SQL cheatsheet: <https://www.metabase.com/learn/cheat-sheets/sql-cheat-sheet>

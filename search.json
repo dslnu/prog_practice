@@ -123,7 +123,7 @@
     "href": "2026/lab4.html",
     "title": "Programming Practice: Lab 4",
     "section": "",
-    "text": "In this lab we will continue working on the blocks database.\n\n\nCreate Python classes for all the 4 entities. You may reuse Vote/Block classes you created in lab2.\n\n\n\n\nPlease write Python code for SELECT statements for the 4 entities in lab3.\nThis code should be inside methods of the classes in Exercise 1."
+    "text": "In this lab we will continue working on the blocks database.\n\n\nCreate Python classes for all the 4 entities. You may reuse Vote/Block classes you created in lab2.\n\n\n\n\nPlease write Python code for SELECT statements for the 4 entities in lab3.\nThis code should be inside methods of the classes in Exercise 1.\n\n\n\n\n\nSQL SELECT examples: https://www.metabase.com/learn/sql/getting-started/querying-tables\nSQL cheatsheet: https://www.metabase.com/learn/cheat-sheets/sql-cheat-sheet"
   },
   {
     "objectID": "2026/lab4.html#exercise-1",
@@ -138,6 +138,13 @@
     "title": "Programming Practice: Lab 4",
     "section": "",
     "text": "Please write Python code for SELECT statements for the 4 entities in lab3.\nThis code should be inside methods of the classes in Exercise 1."
+  },
+  {
+    "objectID": "2026/lab4.html#notes",
+    "href": "2026/lab4.html#notes",
+    "title": "Programming Practice: Lab 4",
+    "section": "",
+    "text": "SQL SELECT examples: https://www.metabase.com/learn/sql/getting-started/querying-tables\nSQL cheatsheet: https://www.metabase.com/learn/cheat-sheets/sql-cheat-sheet"
   },
   {
     "objectID": "2026/lab3.html",

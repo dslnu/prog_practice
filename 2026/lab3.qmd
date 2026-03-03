@@ -1,0 +1,69 @@
+---
+title: "Programming Practice: Lab 3"
+execute:
+  enabled: true
+  echo: false
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+# SQL part 1
+
+In this lab we will create a simple database backend for the BlockProcessor app.
+
+This can be coded separately from [lab2](./lab2.qmd) (for now).
+
+## Exercise 1
+Please read and complete SQLite tutorial at <https://docs.python.org/3/library/sqlite3.html#sqlite3-tutorial>
+
+## Exercise 2
+
+Look at the below entity-relationship (ER) diagram:
+```{mermaid}
+erDiagram
+BLOCKS {
+ hexString id
+ integer view
+ string desc
+ blob img
+}
+
+VOTES {
+hexString block_id
+integer voter_id
+datetime timestamp
+integer source_id
+}
+
+PERSONS {
+integer id
+string name
+string addr
+}
+
+SOURCES {
+integer id
+string ip_addr
+string country_code
+}
+
+BLOCKS ||..o{ VOTES : votes
+VOTES }o..|| PERSONS : votes
+SOURCES ||..o{ VOTES : originates
+```
+
+Please use Python's SQLite interface and write SQL queries for the following:
+
+1. `CREATE TABLE` statements for the above 4 tables.
+2. `INSERT INTO` statements to insert some test data into the tables.

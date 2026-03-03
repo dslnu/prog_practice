@@ -83,12 +83,11 @@ We can only add a block with `view=N` to a chain if:
 
 ### Implementation details
 
-Please use two architectures to use when implementing the code:
-
-  - **A0**: class-based
-  - **A1**: functional
-
-And three types of inputs/outputs for the project:
-
-  - **IO0**: use command-line arguments
-  - **IO1**: use CSV files
+- You may use either functional or class-based architecture for implementation.
+- For the input, please use CSV files.
+- CSV files should have the following columns:
+  - `type` (either block or vote)
+  - `block_id`
+  - `vote_id`
+  - `view`
+- Please read CSV file line-by-line, so that to simulate blocks/votes arriving in random order

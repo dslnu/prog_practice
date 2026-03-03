@@ -1,0 +1,33 @@
+---
+title: "Programming Practice: Lab 4"
+execute:
+  enabled: true
+  echo: false
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+# SQL part 2
+
+In this lab we will continue working on the blocks database.
+
+## Exercise 1
+Create Python classes for all the 4 entities. You may reuse `Vote`/`Block` classes you created in [lab2](./lab2.qmd).
+
+## Exercise 2
+
+1. Please write Python code for `SELECT` statements for the 4 entities in [lab3](./lab3.qmd).
+2. This code should be inside methods of the classes in Exercise 1.
+
+

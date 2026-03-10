@@ -1,0 +1,35 @@
+---
+title: "Programming Practice: Lab 5"
+execute:
+  enabled: true
+  echo: false
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+# SQL part 3
+
+Now we can integrate SQL work and BlockProcessor.
+
+## Exercise 1
+Modify BlockProcessor code so that it uses SQLite database instead of CSVs.
+
+1. Create an extra Python script `updater` that will be doing the insertions. This should run as a console app, that can either read csv files in bulk, or listen for user input.
+2. `updater` will insert records into `Blocks`/`Votes`/`Persons`/`Sources`, and will also update a new table - `event_stream`, containing just two fields - `type` and `id`.
+3. Actual `BlockProcessor` will check the `event_stream` table for updates periodically (usi, look into respective tables (`blocks` or `votes`), and invoke chain processing code.
+
+:::{.callout-important}
+Use some kind of mechanism to mark records in `event_stream` as read by `BlockProcessor`.
+:::
+

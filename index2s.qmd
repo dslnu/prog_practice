@@ -17,6 +17,9 @@ title: "Programming practice"
 ### Lab 4: SQL part 2
 [Lab 4](./2026/lab4.qmd)
 
+### Lab 5: SQL part 3
+[Lab 5](./2026/lab5.qmd)
+
 ## Assessment
 
 - 2 points max for each lesson

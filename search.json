@@ -147,53 +147,130 @@
     "text": "SQL SELECT examples: https://www.metabase.com/learn/sql/getting-started/querying-tables\nSQL cheatsheet: https://www.metabase.com/learn/cheat-sheets/sql-cheat-sheet"
   },
   {
-    "objectID": "2026/lab3.html",
-    "href": "2026/lab3.html",
+    "objectID": "2026/lab2.html",
+    "href": "2026/lab2.html",
+    "title": "Programming Practice: Lab 2",
+    "section": "",
+    "text": "By block we will mean an object with two fields:\n\n\n\n\n\nblock-beta\n  block\n    columns 1\n    id[\"id: hexadecimal string\"]\n    view[\"view: positive integer\"]\n  end\n\n\n\n\n\n\nHere \\(\\text{view} \\in \\mathbb{Z}_+\\).\n\n\n\nBy vote we will mean a single-field object\n\n\n\n\n\nblock-beta\n  block_id[\"block_id: hexadecimal string\"]\n\n\n\n\n\n\n\n\n\nBy chain we will mean a sequence of block objects which:\n\nstart from block with view=0\nare monotonically ordered by view\nno gaps are allowed, e.g. block with view=3 cannot follow block with view=1\n\n\n\n\n\n\nflowchart LR\n  block1[\"`**Block 0** &lt;br/&gt; id: 0x54b &lt;br/&gt; view: 0`\"] --&gt; block2[\"`**Block 1** &lt;br/&gt; id: 0xfe3 &lt;br/&gt; view: 1`\"] --&gt; block3[\"`**Block 2** &lt;br/&gt; id: 0xab8 &lt;br/&gt; view: 2`\"]\n\n\n\n\n\n\nSo, for example, here are valid Python representations of these objects:\nblock1={\n  'id': '0x54b',\n  'view': 0\n}\nblock2={\n  'id': '0xfe3',\n  'view': 1\n}\nblock3={\n  'id': '0xab8',\n  'view': 1\n}\n\nvote={\n    'block_id': '0x234343'\n}\n\nchain = [block1, block2, block3]"
+  },
+  {
+    "objectID": "2026/lab2.html#preliminary-definitions",
+    "href": "2026/lab2.html#preliminary-definitions",
+    "title": "Programming Practice: Lab 2",
+    "section": "",
+    "text": "By block we will mean an object with two fields:\n\n\n\n\n\nblock-beta\n  block\n    columns 1\n    id[\"id: hexadecimal string\"]\n    view[\"view: positive integer\"]\n  end\n\n\n\n\n\n\nHere \\(\\text{view} \\in \\mathbb{Z}_+\\).\n\n\n\nBy vote we will mean a single-field object\n\n\n\n\n\nblock-beta\n  block_id[\"block_id: hexadecimal string\"]\n\n\n\n\n\n\n\n\n\nBy chain we will mean a sequence of block objects which:\n\nstart from block with view=0\nare monotonically ordered by view\nno gaps are allowed, e.g. block with view=3 cannot follow block with view=1\n\n\n\n\n\n\nflowchart LR\n  block1[\"`**Block 0** &lt;br/&gt; id: 0x54b &lt;br/&gt; view: 0`\"] --&gt; block2[\"`**Block 1** &lt;br/&gt; id: 0xfe3 &lt;br/&gt; view: 1`\"] --&gt; block3[\"`**Block 2** &lt;br/&gt; id: 0xab8 &lt;br/&gt; view: 2`\"]\n\n\n\n\n\n\nSo, for example, here are valid Python representations of these objects:\nblock1={\n  'id': '0x54b',\n  'view': 0\n}\nblock2={\n  'id': '0xfe3',\n  'view': 1\n}\nblock3={\n  'id': '0xab8',\n  'view': 1\n}\n\nvote={\n    'block_id': '0x234343'\n}\n\nchain = [block1, block2, block3]"
+  },
+  {
+    "objectID": "2026/lab2.html#problem",
+    "href": "2026/lab2.html#problem",
+    "title": "Programming Practice: Lab 2",
+    "section": "Problem",
+    "text": "Problem\nWe need to build a chain out of a random sequence of blocks and votes coming through input. We can only add a block with view=N to a chain if:\n\na vote for block’s id has been received earlier\ntip of the chain has the block with view=N-1\n\n\nImplementation details\n\nYou may use either functional or class-based architecture for implementation.\nFor the input, please use CSV files.\nCSV files should have the following columns:\n\ntype (either block or vote)\nblock_id\nvote_id\nview\n\nPlease read CSV file line-by-line, so that to simulate blocks/votes arriving in random order"
+  },
+  {
+    "objectID": "2026/lab1.html",
+    "href": "2026/lab1.html",
+    "title": "Programming Practice: Lab 1",
+    "section": "",
+    "text": "uv (https://docs.astral.sh/uv/getting-started/installation/)\ngit (https://git-scm.com/install/windows)\n\n\n\n\n\nRun Git Bash, this should be installed as part of “Git for Windows”.\nmkdir labs.\ncd labs.\nuv init."
+  },
+  {
+    "objectID": "2026/lab1.html#environment-setup",
+    "href": "2026/lab1.html#environment-setup",
+    "title": "Programming Practice: Lab 1",
+    "section": "",
+    "text": "uv (https://docs.astral.sh/uv/getting-started/installation/)\ngit (https://git-scm.com/install/windows)\n\n\n\n\n\nRun Git Bash, this should be installed as part of “Git for Windows”.\nmkdir labs.\ncd labs.\nuv init."
+  },
+  {
+    "objectID": "2026/lab1.html#lab-task",
+    "href": "2026/lab1.html#lab-task",
+    "title": "Programming Practice: Lab 1",
+    "section": "Lab task",
+    "text": "Lab task\n\n\n\n\n\nflowchart TD\n    A(Input) --&gt;|read| B[Program]\n    B --&gt;|write| C(Output)\n\n\n\n\n\n\nPlease write a simple Python script that will sum integers. It should:\n\nAccess input either as command-line arguments, or as a file\n\ncmd line example: prog.py 5 6\nfile example: prog.py -f file.txt\n\n\nIn case of file argument, each line in a file should contain a number to be added\n\nProduce output either to console, or to a file.\n\nconsole output: just print the number and exit\nfile output: prog.py -f file.txt -o out.txt. In this case out.txt should contain the result.\n\nFor command line argument parsing, use argparse (https://docs.python.org/3/howto/argparse.html). Bonus points for implementation using Typer (https://typer.tiangolo.com/)"
+  },
+  {
+    "objectID": "lab5.html",
+    "href": "lab5.html",
+    "title": "Programming Practice: Lab 5",
+    "section": "",
+    "text": "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github\nLive editor: https://markdownlivepreview.com\n\n\n\n\n\nDocs: https://mermaid.js.org/intro/\nLive editor: https://mermaid.live"
+  },
+  {
+    "objectID": "lab5.html#markdown",
+    "href": "lab5.html#markdown",
+    "title": "Programming Practice: Lab 5",
+    "section": "",
+    "text": "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github\nLive editor: https://markdownlivepreview.com"
+  },
+  {
+    "objectID": "lab5.html#mermaid",
+    "href": "lab5.html#mermaid",
+    "title": "Programming Practice: Lab 5",
+    "section": "",
+    "text": "Docs: https://mermaid.js.org/intro/\nLive editor: https://mermaid.live"
+  },
+  {
+    "objectID": "index2s_2025.html",
+    "href": "index2s_2025.html",
+    "title": "Programming practice",
+    "section": "",
+    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5\n\n\n\nLab 6\n\n\n\nLab 7\n\n\n\nLab 8\n\n\n\nProject"
+  },
+  {
+    "objectID": "index2s_2025.html#labs",
+    "href": "index2s_2025.html#labs",
+    "title": "Programming practice",
+    "section": "",
+    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5\n\n\n\nLab 6\n\n\n\nLab 7\n\n\n\nLab 8\n\n\n\nProject"
+  },
+  {
+    "objectID": "index2s_2025.html#assessment",
+    "href": "index2s_2025.html#assessment",
+    "title": "Programming practice",
+    "section": "Assessment",
+    "text": "Assessment\n\n2 points max for each lesson\n4 points max for each lab (if submitted later than 2 weeks deadline, max points is 2)\n\nHence, max points to score during semester is \\((2+4)*16 = 96\\)."
+  },
+  {
+    "objectID": "lab2.html",
+    "href": "lab2.html",
+    "title": "Programming Practice: Lab 2",
+    "section": "",
+    "text": "Git Fundamentals\n\nInstall Git for Windows.\nRun Git Bash.\nCreate a test directory: mkdir test.\nNavigate to test directory: cd test.\nCreate a test file: echo \"test contents\" &gt; test.txt.\nInitialize a Git repo: git init.\nCheck Git repo status: git status.\nAdd the test file: git add test.txt.\nCommit the test file: git commit -m \"Commit message\"\n\n\nGit will complain that it doesn’t know who you are. Update your name and email per it’s instructions.\n\n\nNavigate to GitHub and create your account and repository.\nCopy repository URL and set it in your local repo via git remote add origin &lt;GITHUB_REPO_URL&gt;.\nPush your local changes to remote repo: git push -u origin master.\n\n\nNote that -u option is only needed the first time you’re doing the push in any local branch.\n\n\n\nRecommended reading:\n\nhttps://git-scm.com/book/en/v2\n\n\n\nExercises\nTask 1. Create a repo for BlockProcessor task and push it to GitHub."
+  },
+  {
+    "objectID": "lab1.html",
+    "href": "lab1.html",
+    "title": "Programming Practice: Lab 1",
+    "section": "",
+    "text": "By block we will mean an object with two fields:\n\n\n\n\n\nblock-beta\n  block\n    columns 1\n    id[\"id: hexadecimal string\"]\n    view[\"view: positive integer\"]\n  end\n\n\n\n\n\n\nHere \\(\\text{view} \\in \\mathbb{Z}_+\\).\n\n\n\nBy vote we will mean a single-field object\n\n\n\n\n\nblock-beta\n  block_id[\"block_id: hexadecimal string\"]\n\n\n\n\n\n\n\n\n\nBy chain we will mean a sequence of block objects which:\n\nstart from block with view=0\nare monotonically ordered by view\nno gaps are allowed, e.g. block with view=3 cannot follow block with view=1\n\n\n\n\n\n\nflowchart LR\n  block1[\"`**Block 0** &lt;br/&gt; id: 0x54b &lt;br/&gt; view: 0`\"] --&gt; block2[\"`**Block 1** &lt;br/&gt; id: 0xfe3 &lt;br/&gt; view: 1`\"] --&gt; block3[\"`**Block 2** &lt;br/&gt; id: 0xab8 &lt;br/&gt; view: 2`\"]\n\n\n\n\n\n\nSo, for example, here are valid Python representations of these objects:\nblock1={\n  'id': '0x54b',\n  'view': 0\n}\nblock2={\n  'id': '0xfe3',\n  'view': 1\n}\nblock3={\n  'id': '0xab8',\n  'view': 1\n}\n\nvote={\n    'block_id': '0x234343'\n}\n\nchain = [block1, block2, block3]"
+  },
+  {
+    "objectID": "lab1.html#preliminary-definitions",
+    "href": "lab1.html#preliminary-definitions",
+    "title": "Programming Practice: Lab 1",
+    "section": "",
+    "text": "By block we will mean an object with two fields:\n\n\n\n\n\nblock-beta\n  block\n    columns 1\n    id[\"id: hexadecimal string\"]\n    view[\"view: positive integer\"]\n  end\n\n\n\n\n\n\nHere \\(\\text{view} \\in \\mathbb{Z}_+\\).\n\n\n\nBy vote we will mean a single-field object\n\n\n\n\n\nblock-beta\n  block_id[\"block_id: hexadecimal string\"]\n\n\n\n\n\n\n\n\n\nBy chain we will mean a sequence of block objects which:\n\nstart from block with view=0\nare monotonically ordered by view\nno gaps are allowed, e.g. block with view=3 cannot follow block with view=1\n\n\n\n\n\n\nflowchart LR\n  block1[\"`**Block 0** &lt;br/&gt; id: 0x54b &lt;br/&gt; view: 0`\"] --&gt; block2[\"`**Block 1** &lt;br/&gt; id: 0xfe3 &lt;br/&gt; view: 1`\"] --&gt; block3[\"`**Block 2** &lt;br/&gt; id: 0xab8 &lt;br/&gt; view: 2`\"]\n\n\n\n\n\n\nSo, for example, here are valid Python representations of these objects:\nblock1={\n  'id': '0x54b',\n  'view': 0\n}\nblock2={\n  'id': '0xfe3',\n  'view': 1\n}\nblock3={\n  'id': '0xab8',\n  'view': 1\n}\n\nvote={\n    'block_id': '0x234343'\n}\n\nchain = [block1, block2, block3]"
+  },
+  {
+    "objectID": "lab1.html#problem",
+    "href": "lab1.html#problem",
+    "title": "Programming Practice: Lab 1",
+    "section": "Problem",
+    "text": "Problem\nWe need to build a chain out of a random sequence of blocks and votes coming through input. We can only add a block with view=N to a chain if:\n\na vote for block’s id has been received earlier\ntip of the chain has the block with view=N-1\n\n\nImplementation details\nThere are two architectures to use when implementing the code:\n\nA0: class-based\nA1: functional\n\nAnd three types of inputs/outputs for the project:\n\nIO0: use command-line arguments\nIO1: use CSV files\nIO2: use SQL DB\n\nHence, 6 options total. So, if \\(N \\in {1,...,13}\\) is your number, the architecture/io to choose will be as follows:\n\narchitecture: \\(N \\mod 2\\)\nio: \\(N \\mod 3\\)\n\nE.g., if \\(N=8\\), then use A0 (class-based approach) and IO2 (SQL DB)."
+  },
+  {
+    "objectID": "lab3.html",
+    "href": "lab3.html",
     "title": "Programming Practice: Lab 3",
     "section": "",
-    "text": "In this lab we will create a simple database backend for the BlockProcessor app.\nThis can be coded separately from lab2 (for now).\n\n\nPlease read and complete SQLite tutorial at https://docs.python.org/3/library/sqlite3.html#sqlite3-tutorial\n\n\n\nLook at the below entity-relationship (ER) diagram:\n\n\n\n\n\nerDiagram\nBLOCKS {\n hexString id\n integer view\n string desc\n blob img\n}\n\nVOTES {\nhexString block_id\ninteger voter_id\ndatetime timestamp\ninteger source_id\n}\n\nPERSONS {\ninteger id\nstring name\nstring addr\n}\n\nSOURCES {\ninteger id\nstring ip_addr\nstring country_code\n}\n\nBLOCKS ||..o{ VOTES : votes\nVOTES }o..|| PERSONS : votes\nSOURCES ||..o{ VOTES : originates\n\n\n\n\n\n\nPlease use Python’s SQLite interface and write SQL queries for the following:\n\nCREATE TABLE statements for the above 4 tables.\nINSERT INTO statements to insert some test data into the tables."
+    "text": "Python Regular Expressions\nRequired reading:\n\nOfficial Python package documentation.\nRegex cheatsheet\nCheatsheet with examples\n\n\n\nExercises\nTask 1. Write regexes that:\n\nremove all special (non-alphanumeric) characters from a string.\nmatch a word that contains a given character (e.g. “y”).\nmatch a word that is \\(n\\) characters long.\nmatch a word that begins with “a” OR “b” and ends with “s”.\n\nTask 2. Write a program that will\n\ncollect all monetary amounts from a given text.\nExample: “first amount is $123.45, second amount is $400” -&gt; [123.45, 400].\nconvert these to float numbers\nand sum them\n\nTask 3. Write a program that will cleanup Python source code by:\n\nremoving source code comments from Python code.\nremoving blank lines (hint: use \\r, \\n special characters)\n\nTask 4. Write a program that will convert dates in “yyyy-mm-dd” format to “dd-mm-yyyy” format.\nExample: 2024-02-11 -&gt; 11-02-2024."
   },
   {
-    "objectID": "2026/lab3.html#exercise-1",
-    "href": "2026/lab3.html#exercise-1",
-    "title": "Programming Practice: Lab 3",
+    "objectID": "lab6.html",
+    "href": "lab6.html",
+    "title": "Programming Practice: Lab 6",
     "section": "",
-    "text": "Please read and complete SQLite tutorial at https://docs.python.org/3/library/sqlite3.html#sqlite3-tutorial"
-  },
-  {
-    "objectID": "2026/lab3.html#exercise-2",
-    "href": "2026/lab3.html#exercise-2",
-    "title": "Programming Practice: Lab 3",
-    "section": "",
-    "text": "Look at the below entity-relationship (ER) diagram:\n\n\n\n\n\nerDiagram\nBLOCKS {\n hexString id\n integer view\n string desc\n blob img\n}\n\nVOTES {\nhexString block_id\ninteger voter_id\ndatetime timestamp\ninteger source_id\n}\n\nPERSONS {\ninteger id\nstring name\nstring addr\n}\n\nSOURCES {\ninteger id\nstring ip_addr\nstring country_code\n}\n\nBLOCKS ||..o{ VOTES : votes\nVOTES }o..|| PERSONS : votes\nSOURCES ||..o{ VOTES : originates\n\n\n\n\n\n\nPlease use Python’s SQLite interface and write SQL queries for the following:\n\nCREATE TABLE statements for the above 4 tables.\nINSERT INTO statements to insert some test data into the tables."
-  },
-  {
-    "objectID": "lab4.html",
-    "href": "lab4.html",
-    "title": "Programming Practice: Lab 4",
-    "section": "",
-    "text": "How does one create a branch?\ngit branch some_branch\nThen, in order to merge some_branch into master, one can do:\ngit checkout master\ngit merge some_branch\nAlternatively, instead of git merge, a (preferred way) is rebasing:\nInside some_branch:\ngit rebase -i master\nAnd then\ngit checkout master\ngit merge some_branch\nIn this case, git merge will be a fast-forward merge, and no merge commit will be created.\n\n\n\nhttps://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging\nhttps://git-scm.com/book/en/v2/Git-Branching-Rebasing"
-  },
-  {
-    "objectID": "lab4.html#recommended-reading",
-    "href": "lab4.html#recommended-reading",
-    "title": "Programming Practice: Lab 4",
-    "section": "",
-    "text": "https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging\nhttps://git-scm.com/book/en/v2/Git-Branching-Rebasing"
-  },
-  {
-    "objectID": "lab4.html#what-is-a-tree",
-    "href": "lab4.html#what-is-a-tree",
-    "title": "Programming Practice: Lab 4",
-    "section": "What is a tree?",
-    "text": "What is a tree?\nTree is a graph-like structure, composed of nodes, where:\n\nthere must be a root node\neach node (including root) has 0 or more children.\n\nWe can build a tree in Python. First, we define a tree node:\nclass Node:\n    def __init__(self, value):\n        self.value = value\n        self.children = []\nA binary tree is a tree where each node has no more than 2 children.\nclass Node:\n    def __init__(self, value):\n        self.left = None\n        self.right = None\n        self.value = key\nA binary search tree is a binary tree where \\(\\forall ~\\text{node}: \\text{left\\_descendents} \\leq node &lt; \\text{right\\_descendents}\\).\n\nA complete tree is a tree where each level is fully filled, possibly except for the last level.\nA full tree is a binary tree where each node has either 0 or 2 children.\nA perfect tree is a complete and full tree."
-  },
-  {
-    "objectID": "lab4.html#tree-traversal-types",
-    "href": "lab4.html#tree-traversal-types",
-    "title": "Programming Practice: Lab 4",
-    "section": "Tree traversal types",
-    "text": "Tree traversal types\nNow that we know what is a tree, we also need to know how to iterate through it (or traverse).\nThere are several types:\n\nPre-order\nprocess(node.value)\ntraverse(node.left)\ntraverse(node.right)\n\n\nIn-order\ntraverse(node.left)\nprocess(node.value)\ntraverse(node.right)\n\n\nPost-order\ntraverse(node.left)\ntraverse(node.right)\nprocess(node.value)"
+    "text": "SQL intro\nIn this lab we will extend BlockProcessor code with SQLite embedded database support.\n\n\nExercises\nTask 1. Add sqlite tables for BLOCKS and VOTES, together with a Python class handling DB manipulation.\nTask 2. Add a new table - PERSON. This will have the following fields:\n\nname: string\nbirth_year: integer\nip_addr: string\n\nTask 3. Extend VOTES with person_id field being a foreign key to PERSON.\n\nAll above tasks should have corresponding methods in Python code.\n\n\n\nRecommended reading\n\nSQLite tutorial: https://docs.python.org/3/library/sqlite3.html#sqlite3-tutorial"
   },
   {
     "objectID": "lab7.html",
@@ -224,144 +301,81 @@
     "text": "We can use the following template code to fetch data given its URL:\nimport requests\n\n# Fetch url\nr = requests.get('https://wikipedia.org')\n# Response headers\nr.headers\n# Response Content\nr.text\n# OR\nr.json()"
   },
   {
-    "objectID": "lab6.html",
-    "href": "lab6.html",
-    "title": "Programming Practice: Lab 6",
+    "objectID": "lab4.html",
+    "href": "lab4.html",
+    "title": "Programming Practice: Lab 4",
     "section": "",
-    "text": "SQL intro\nIn this lab we will extend BlockProcessor code with SQLite embedded database support.\n\n\nExercises\nTask 1. Add sqlite tables for BLOCKS and VOTES, together with a Python class handling DB manipulation.\nTask 2. Add a new table - PERSON. This will have the following fields:\n\nname: string\nbirth_year: integer\nip_addr: string\n\nTask 3. Extend VOTES with person_id field being a foreign key to PERSON.\n\nAll above tasks should have corresponding methods in Python code.\n\n\n\nRecommended reading\n\nSQLite tutorial: https://docs.python.org/3/library/sqlite3.html#sqlite3-tutorial"
+    "text": "How does one create a branch?\ngit branch some_branch\nThen, in order to merge some_branch into master, one can do:\ngit checkout master\ngit merge some_branch\nAlternatively, instead of git merge, a (preferred way) is rebasing:\nInside some_branch:\ngit rebase -i master\nAnd then\ngit checkout master\ngit merge some_branch\nIn this case, git merge will be a fast-forward merge, and no merge commit will be created.\n\n\n\nhttps://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging\nhttps://git-scm.com/book/en/v2/Git-Branching-Rebasing"
   },
   {
-    "objectID": "lab3.html",
-    "href": "lab3.html",
+    "objectID": "lab4.html#recommended-reading",
+    "href": "lab4.html#recommended-reading",
+    "title": "Programming Practice: Lab 4",
+    "section": "",
+    "text": "https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging\nhttps://git-scm.com/book/en/v2/Git-Branching-Rebasing"
+  },
+  {
+    "objectID": "lab4.html#what-is-a-tree",
+    "href": "lab4.html#what-is-a-tree",
+    "title": "Programming Practice: Lab 4",
+    "section": "What is a tree?",
+    "text": "What is a tree?\nTree is a graph-like structure, composed of nodes, where:\n\nthere must be a root node\neach node (including root) has 0 or more children.\n\nWe can build a tree in Python. First, we define a tree node:\nclass Node:\n    def __init__(self, value):\n        self.value = value\n        self.children = []\nA binary tree is a tree where each node has no more than 2 children.\nclass Node:\n    def __init__(self, value):\n        self.left = None\n        self.right = None\n        self.value = key\nA binary search tree is a binary tree where \\(\\forall ~\\text{node}: \\text{left\\_descendents} \\leq node &lt; \\text{right\\_descendents}\\).\n\nA complete tree is a tree where each level is fully filled, possibly except for the last level.\nA full tree is a binary tree where each node has either 0 or 2 children.\nA perfect tree is a complete and full tree."
+  },
+  {
+    "objectID": "lab4.html#tree-traversal-types",
+    "href": "lab4.html#tree-traversal-types",
+    "title": "Programming Practice: Lab 4",
+    "section": "Tree traversal types",
+    "text": "Tree traversal types\nNow that we know what is a tree, we also need to know how to iterate through it (or traverse).\nThere are several types:\n\nPre-order\nprocess(node.value)\ntraverse(node.left)\ntraverse(node.right)\n\n\nIn-order\ntraverse(node.left)\nprocess(node.value)\ntraverse(node.right)\n\n\nPost-order\ntraverse(node.left)\ntraverse(node.right)\nprocess(node.value)"
+  },
+  {
+    "objectID": "2026/lab3.html",
+    "href": "2026/lab3.html",
     "title": "Programming Practice: Lab 3",
     "section": "",
-    "text": "Python Regular Expressions\nRequired reading:\n\nOfficial Python package documentation.\nRegex cheatsheet\nCheatsheet with examples\n\n\n\nExercises\nTask 1. Write regexes that:\n\nremove all special (non-alphanumeric) characters from a string.\nmatch a word that contains a given character (e.g. “y”).\nmatch a word that is \\(n\\) characters long.\nmatch a word that begins with “a” OR “b” and ends with “s”.\n\nTask 2. Write a program that will\n\ncollect all monetary amounts from a given text.\nExample: “first amount is $123.45, second amount is $400” -&gt; [123.45, 400].\nconvert these to float numbers\nand sum them\n\nTask 3. Write a program that will cleanup Python source code by:\n\nremoving source code comments from Python code.\nremoving blank lines (hint: use \\r, \\n special characters)\n\nTask 4. Write a program that will convert dates in “yyyy-mm-dd” format to “dd-mm-yyyy” format.\nExample: 2024-02-11 -&gt; 11-02-2024."
+    "text": "In this lab we will create a simple database backend for the BlockProcessor app.\nThis can be coded separately from lab2 (for now).\n\n\nPlease read and complete SQLite tutorial at https://docs.python.org/3/library/sqlite3.html#sqlite3-tutorial\n\n\n\nLook at the below entity-relationship (ER) diagram:\n\n\n\n\n\nerDiagram\nBLOCKS {\n hexString id\n integer view\n string desc\n blob img\n}\n\nVOTES {\nhexString block_id\ninteger voter_id\ndatetime timestamp\ninteger source_id\n}\n\nPERSONS {\ninteger id\nstring name\nstring addr\n}\n\nSOURCES {\ninteger id\nstring ip_addr\nstring country_code\n}\n\nBLOCKS ||..o{ VOTES : votes\nVOTES }o..|| PERSONS : votes\nSOURCES ||..o{ VOTES : originates\n\n\n\n\n\n\nPlease use Python’s SQLite interface and write SQL queries for the following:\n\nCREATE TABLE statements for the above 4 tables.\nINSERT INTO statements to insert some test data into the tables."
   },
   {
-    "objectID": "lab1.html",
-    "href": "lab1.html",
-    "title": "Programming Practice: Lab 1",
+    "objectID": "2026/lab3.html#exercise-1",
+    "href": "2026/lab3.html#exercise-1",
+    "title": "Programming Practice: Lab 3",
     "section": "",
-    "text": "By block we will mean an object with two fields:\n\n\n\n\n\nblock-beta\n  block\n    columns 1\n    id[\"id: hexadecimal string\"]\n    view[\"view: positive integer\"]\n  end\n\n\n\n\n\n\nHere \\(\\text{view} \\in \\mathbb{Z}_+\\).\n\n\n\nBy vote we will mean a single-field object\n\n\n\n\n\nblock-beta\n  block_id[\"block_id: hexadecimal string\"]\n\n\n\n\n\n\n\n\n\nBy chain we will mean a sequence of block objects which:\n\nstart from block with view=0\nare monotonically ordered by view\nno gaps are allowed, e.g. block with view=3 cannot follow block with view=1\n\n\n\n\n\n\nflowchart LR\n  block1[\"`**Block 0** &lt;br/&gt; id: 0x54b &lt;br/&gt; view: 0`\"] --&gt; block2[\"`**Block 1** &lt;br/&gt; id: 0xfe3 &lt;br/&gt; view: 1`\"] --&gt; block3[\"`**Block 2** &lt;br/&gt; id: 0xab8 &lt;br/&gt; view: 2`\"]\n\n\n\n\n\n\nSo, for example, here are valid Python representations of these objects:\nblock1={\n  'id': '0x54b',\n  'view': 0\n}\nblock2={\n  'id': '0xfe3',\n  'view': 1\n}\nblock3={\n  'id': '0xab8',\n  'view': 1\n}\n\nvote={\n    'block_id': '0x234343'\n}\n\nchain = [block1, block2, block3]"
+    "text": "Please read and complete SQLite tutorial at https://docs.python.org/3/library/sqlite3.html#sqlite3-tutorial"
   },
   {
-    "objectID": "lab1.html#preliminary-definitions",
-    "href": "lab1.html#preliminary-definitions",
-    "title": "Programming Practice: Lab 1",
+    "objectID": "2026/lab3.html#exercise-2",
+    "href": "2026/lab3.html#exercise-2",
+    "title": "Programming Practice: Lab 3",
     "section": "",
-    "text": "By block we will mean an object with two fields:\n\n\n\n\n\nblock-beta\n  block\n    columns 1\n    id[\"id: hexadecimal string\"]\n    view[\"view: positive integer\"]\n  end\n\n\n\n\n\n\nHere \\(\\text{view} \\in \\mathbb{Z}_+\\).\n\n\n\nBy vote we will mean a single-field object\n\n\n\n\n\nblock-beta\n  block_id[\"block_id: hexadecimal string\"]\n\n\n\n\n\n\n\n\n\nBy chain we will mean a sequence of block objects which:\n\nstart from block with view=0\nare monotonically ordered by view\nno gaps are allowed, e.g. block with view=3 cannot follow block with view=1\n\n\n\n\n\n\nflowchart LR\n  block1[\"`**Block 0** &lt;br/&gt; id: 0x54b &lt;br/&gt; view: 0`\"] --&gt; block2[\"`**Block 1** &lt;br/&gt; id: 0xfe3 &lt;br/&gt; view: 1`\"] --&gt; block3[\"`**Block 2** &lt;br/&gt; id: 0xab8 &lt;br/&gt; view: 2`\"]\n\n\n\n\n\n\nSo, for example, here are valid Python representations of these objects:\nblock1={\n  'id': '0x54b',\n  'view': 0\n}\nblock2={\n  'id': '0xfe3',\n  'view': 1\n}\nblock3={\n  'id': '0xab8',\n  'view': 1\n}\n\nvote={\n    'block_id': '0x234343'\n}\n\nchain = [block1, block2, block3]"
+    "text": "Look at the below entity-relationship (ER) diagram:\n\n\n\n\n\nerDiagram\nBLOCKS {\n hexString id\n integer view\n string desc\n blob img\n}\n\nVOTES {\nhexString block_id\ninteger voter_id\ndatetime timestamp\ninteger source_id\n}\n\nPERSONS {\ninteger id\nstring name\nstring addr\n}\n\nSOURCES {\ninteger id\nstring ip_addr\nstring country_code\n}\n\nBLOCKS ||..o{ VOTES : votes\nVOTES }o..|| PERSONS : votes\nSOURCES ||..o{ VOTES : originates\n\n\n\n\n\n\nPlease use Python’s SQLite interface and write SQL queries for the following:\n\nCREATE TABLE statements for the above 4 tables.\nINSERT INTO statements to insert some test data into the tables."
   },
   {
-    "objectID": "lab1.html#problem",
-    "href": "lab1.html#problem",
-    "title": "Programming Practice: Lab 1",
-    "section": "Problem",
-    "text": "Problem\nWe need to build a chain out of a random sequence of blocks and votes coming through input. We can only add a block with view=N to a chain if:\n\na vote for block’s id has been received earlier\ntip of the chain has the block with view=N-1\n\n\nImplementation details\nThere are two architectures to use when implementing the code:\n\nA0: class-based\nA1: functional\n\nAnd three types of inputs/outputs for the project:\n\nIO0: use command-line arguments\nIO1: use CSV files\nIO2: use SQL DB\n\nHence, 6 options total. So, if \\(N \\in {1,...,13}\\) is your number, the architecture/io to choose will be as follows:\n\narchitecture: \\(N \\mod 2\\)\nio: \\(N \\mod 3\\)\n\nE.g., if \\(N=8\\), then use A0 (class-based approach) and IO2 (SQL DB)."
-  },
-  {
-    "objectID": "lab2.html",
-    "href": "lab2.html",
-    "title": "Programming Practice: Lab 2",
-    "section": "",
-    "text": "Git Fundamentals\n\nInstall Git for Windows.\nRun Git Bash.\nCreate a test directory: mkdir test.\nNavigate to test directory: cd test.\nCreate a test file: echo \"test contents\" &gt; test.txt.\nInitialize a Git repo: git init.\nCheck Git repo status: git status.\nAdd the test file: git add test.txt.\nCommit the test file: git commit -m \"Commit message\"\n\n\nGit will complain that it doesn’t know who you are. Update your name and email per it’s instructions.\n\n\nNavigate to GitHub and create your account and repository.\nCopy repository URL and set it in your local repo via git remote add origin &lt;GITHUB_REPO_URL&gt;.\nPush your local changes to remote repo: git push -u origin master.\n\n\nNote that -u option is only needed the first time you’re doing the push in any local branch.\n\n\n\nRecommended reading:\n\nhttps://git-scm.com/book/en/v2\n\n\n\nExercises\nTask 1. Create a repo for BlockProcessor task and push it to GitHub."
-  },
-  {
-    "objectID": "index2s_2025.html",
-    "href": "index2s_2025.html",
-    "title": "Programming practice",
-    "section": "",
-    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5\n\n\n\nLab 6\n\n\n\nLab 7\n\n\n\nLab 8\n\n\n\nProject"
-  },
-  {
-    "objectID": "index2s_2025.html#labs",
-    "href": "index2s_2025.html#labs",
-    "title": "Programming practice",
-    "section": "",
-    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5\n\n\n\nLab 6\n\n\n\nLab 7\n\n\n\nLab 8\n\n\n\nProject"
-  },
-  {
-    "objectID": "index2s_2025.html#assessment",
-    "href": "index2s_2025.html#assessment",
-    "title": "Programming practice",
-    "section": "Assessment",
-    "text": "Assessment\n\n2 points max for each lesson\n4 points max for each lab (if submitted later than 2 weeks deadline, max points is 2)\n\nHence, max points to score during semester is \\((2+4)*16 = 96\\)."
-  },
-  {
-    "objectID": "lab5.html",
-    "href": "lab5.html",
+    "objectID": "2026/lab5.html",
+    "href": "2026/lab5.html",
     "title": "Programming Practice: Lab 5",
     "section": "",
-    "text": "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github\nLive editor: https://markdownlivepreview.com\n\n\n\n\n\nDocs: https://mermaid.js.org/intro/\nLive editor: https://mermaid.live"
+    "text": "Now we can integrate SQL work and BlockProcessor.\n\n\nModify BlockProcessor code so that it uses SQLite database instead of CSVs.\n\nCreate an extra Python script updater that will be doing the insertions. This should run as a console app, that can either read csv files in bulk, or listen for user input.\nupdater will insert records into Blocks/Votes/Persons/Sources, and will also update a new table - event_stream, containing just two fields - type and id.\nActual BlockProcessor will check the event_stream table for updates periodically (usi, look into respective tables (blocks or votes), and invoke chain processing code.\n\n\n\n\n\n\n\nImportant\n\n\n\nUse some kind of mechanism to mark records in event_stream as read by BlockProcessor."
   },
   {
-    "objectID": "lab5.html#markdown",
-    "href": "lab5.html#markdown",
+    "objectID": "2026/lab5.html#exercise-1",
+    "href": "2026/lab5.html#exercise-1",
     "title": "Programming Practice: Lab 5",
     "section": "",
-    "text": "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github\nLive editor: https://markdownlivepreview.com"
-  },
-  {
-    "objectID": "lab5.html#mermaid",
-    "href": "lab5.html#mermaid",
-    "title": "Programming Practice: Lab 5",
-    "section": "",
-    "text": "Docs: https://mermaid.js.org/intro/\nLive editor: https://mermaid.live"
-  },
-  {
-    "objectID": "2026/lab1.html",
-    "href": "2026/lab1.html",
-    "title": "Programming Practice: Lab 1",
-    "section": "",
-    "text": "uv (https://docs.astral.sh/uv/getting-started/installation/)\ngit (https://git-scm.com/install/windows)\n\n\n\n\n\nRun Git Bash, this should be installed as part of “Git for Windows”.\nmkdir labs.\ncd labs.\nuv init."
-  },
-  {
-    "objectID": "2026/lab1.html#environment-setup",
-    "href": "2026/lab1.html#environment-setup",
-    "title": "Programming Practice: Lab 1",
-    "section": "",
-    "text": "uv (https://docs.astral.sh/uv/getting-started/installation/)\ngit (https://git-scm.com/install/windows)\n\n\n\n\n\nRun Git Bash, this should be installed as part of “Git for Windows”.\nmkdir labs.\ncd labs.\nuv init."
-  },
-  {
-    "objectID": "2026/lab1.html#lab-task",
-    "href": "2026/lab1.html#lab-task",
-    "title": "Programming Practice: Lab 1",
-    "section": "Lab task",
-    "text": "Lab task\n\n\n\n\n\nflowchart TD\n    A(Input) --&gt;|read| B[Program]\n    B --&gt;|write| C(Output)\n\n\n\n\n\n\nPlease write a simple Python script that will sum integers. It should:\n\nAccess input either as command-line arguments, or as a file\n\ncmd line example: prog.py 5 6\nfile example: prog.py -f file.txt\n\n\nIn case of file argument, each line in a file should contain a number to be added\n\nProduce output either to console, or to a file.\n\nconsole output: just print the number and exit\nfile output: prog.py -f file.txt -o out.txt. In this case out.txt should contain the result.\n\nFor command line argument parsing, use argparse (https://docs.python.org/3/howto/argparse.html). Bonus points for implementation using Typer (https://typer.tiangolo.com/)"
-  },
-  {
-    "objectID": "2026/lab2.html",
-    "href": "2026/lab2.html",
-    "title": "Programming Practice: Lab 2",
-    "section": "",
-    "text": "By block we will mean an object with two fields:\n\n\n\n\n\nblock-beta\n  block\n    columns 1\n    id[\"id: hexadecimal string\"]\n    view[\"view: positive integer\"]\n  end\n\n\n\n\n\n\nHere \\(\\text{view} \\in \\mathbb{Z}_+\\).\n\n\n\nBy vote we will mean a single-field object\n\n\n\n\n\nblock-beta\n  block_id[\"block_id: hexadecimal string\"]\n\n\n\n\n\n\n\n\n\nBy chain we will mean a sequence of block objects which:\n\nstart from block with view=0\nare monotonically ordered by view\nno gaps are allowed, e.g. block with view=3 cannot follow block with view=1\n\n\n\n\n\n\nflowchart LR\n  block1[\"`**Block 0** &lt;br/&gt; id: 0x54b &lt;br/&gt; view: 0`\"] --&gt; block2[\"`**Block 1** &lt;br/&gt; id: 0xfe3 &lt;br/&gt; view: 1`\"] --&gt; block3[\"`**Block 2** &lt;br/&gt; id: 0xab8 &lt;br/&gt; view: 2`\"]\n\n\n\n\n\n\nSo, for example, here are valid Python representations of these objects:\nblock1={\n  'id': '0x54b',\n  'view': 0\n}\nblock2={\n  'id': '0xfe3',\n  'view': 1\n}\nblock3={\n  'id': '0xab8',\n  'view': 1\n}\n\nvote={\n    'block_id': '0x234343'\n}\n\nchain = [block1, block2, block3]"
-  },
-  {
-    "objectID": "2026/lab2.html#preliminary-definitions",
-    "href": "2026/lab2.html#preliminary-definitions",
-    "title": "Programming Practice: Lab 2",
-    "section": "",
-    "text": "By block we will mean an object with two fields:\n\n\n\n\n\nblock-beta\n  block\n    columns 1\n    id[\"id: hexadecimal string\"]\n    view[\"view: positive integer\"]\n  end\n\n\n\n\n\n\nHere \\(\\text{view} \\in \\mathbb{Z}_+\\).\n\n\n\nBy vote we will mean a single-field object\n\n\n\n\n\nblock-beta\n  block_id[\"block_id: hexadecimal string\"]\n\n\n\n\n\n\n\n\n\nBy chain we will mean a sequence of block objects which:\n\nstart from block with view=0\nare monotonically ordered by view\nno gaps are allowed, e.g. block with view=3 cannot follow block with view=1\n\n\n\n\n\n\nflowchart LR\n  block1[\"`**Block 0** &lt;br/&gt; id: 0x54b &lt;br/&gt; view: 0`\"] --&gt; block2[\"`**Block 1** &lt;br/&gt; id: 0xfe3 &lt;br/&gt; view: 1`\"] --&gt; block3[\"`**Block 2** &lt;br/&gt; id: 0xab8 &lt;br/&gt; view: 2`\"]\n\n\n\n\n\n\nSo, for example, here are valid Python representations of these objects:\nblock1={\n  'id': '0x54b',\n  'view': 0\n}\nblock2={\n  'id': '0xfe3',\n  'view': 1\n}\nblock3={\n  'id': '0xab8',\n  'view': 1\n}\n\nvote={\n    'block_id': '0x234343'\n}\n\nchain = [block1, block2, block3]"
-  },
-  {
-    "objectID": "2026/lab2.html#problem",
-    "href": "2026/lab2.html#problem",
-    "title": "Programming Practice: Lab 2",
-    "section": "Problem",
-    "text": "Problem\nWe need to build a chain out of a random sequence of blocks and votes coming through input. We can only add a block with view=N to a chain if:\n\na vote for block’s id has been received earlier\ntip of the chain has the block with view=N-1\n\n\nImplementation details\n\nYou may use either functional or class-based architecture for implementation.\nFor the input, please use CSV files.\nCSV files should have the following columns:\n\ntype (either block or vote)\nblock_id\nvote_id\nview\n\nPlease read CSV file line-by-line, so that to simulate blocks/votes arriving in random order"
+    "text": "Modify BlockProcessor code so that it uses SQLite database instead of CSVs.\n\nCreate an extra Python script updater that will be doing the insertions. This should run as a console app, that can either read csv files in bulk, or listen for user input.\nupdater will insert records into Blocks/Votes/Persons/Sources, and will also update a new table - event_stream, containing just two fields - type and id.\nActual BlockProcessor will check the event_stream table for updates periodically (usi, look into respective tables (blocks or votes), and invoke chain processing code.\n\n\n\n\n\n\n\nImportant\n\n\n\nUse some kind of mechanism to mark records in event_stream as read by BlockProcessor."
   },
   {
     "objectID": "index2s.html",
     "href": "index2s.html",
     "title": "Programming practice",
     "section": "",
-    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4"
+    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5"
   },
   {
     "objectID": "index2s.html#labs",
     "href": "index2s.html#labs",
     "title": "Programming practice",
     "section": "",
-    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4"
+    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5"
   },
   {
     "objectID": "index2s.html#assessment",

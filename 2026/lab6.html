@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming practice – prog_practice</title>
+<title>Programming Practice: Lab 6 – prog_practice</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,26 +23,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,37 +106,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -111,7 +117,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">prog_practice</span>
     </a>
   </div>
@@ -122,19 +128,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index1m.html"> 
+    <a class="nav-link" href="../index1m.html"> 
 <span class="menu-text">MTM-11 Programming Practice</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./index2s.html"> 
+    <a class="nav-link" href="../index2s.html"> 
 <span class="menu-text">MTS-21 Programming Practice</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./index3s.html"> 
+    <a class="nav-link" href="../index3s.html"> 
 <span class="menu-text">MTS-31 Programming Practice</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">Programming Practice</span></a>
   </li>  
 </ul>
@@ -153,19 +159,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#labs" id="toc-labs" class="nav-link active" data-scroll-target="#labs">Labs</a>
+  <li><a href="#validation-and-testing" id="toc-validation-and-testing" class="nav-link active" data-scroll-target="#validation-and-testing">Validation and testing</a>
   <ul class="collapse">
-  <li><a href="#lab-1-block-processor" id="toc-lab-1-block-processor" class="nav-link" data-scroll-target="#lab-1-block-processor">Lab 1: Block processor</a></li>
-  <li><a href="#lab-2-git-intro" id="toc-lab-2-git-intro" class="nav-link" data-scroll-target="#lab-2-git-intro">Lab 2: Git intro</a></li>
-  <li><a href="#lab-3-regular-expressions" id="toc-lab-3-regular-expressions" class="nav-link" data-scroll-target="#lab-3-regular-expressions">Lab 3: Regular Expressions</a></li>
-  <li><a href="#lab-4-git-merges-blockprocessor-extension" id="toc-lab-4-git-merges-blockprocessor-extension" class="nav-link" data-scroll-target="#lab-4-git-merges-blockprocessor-extension">Lab 4: Git Merges + BlockProcessor extension</a></li>
-  <li><a href="#lab-5-markdown-mermaid" id="toc-lab-5-markdown-mermaid" class="nav-link" data-scroll-target="#lab-5-markdown-mermaid">Lab 5: Markdown + Mermaid</a></li>
-  <li><a href="#lab-6-sql-intro" id="toc-lab-6-sql-intro" class="nav-link" data-scroll-target="#lab-6-sql-intro">Lab 6: SQL intro</a></li>
-  <li><a href="#lab-7-networking-intro" id="toc-lab-7-networking-intro" class="nav-link" data-scroll-target="#lab-7-networking-intro">Lab 7: Networking intro</a></li>
-  <li><a href="#lab-8-networking-2" id="toc-lab-8-networking-2" class="nav-link" data-scroll-target="#lab-8-networking-2">Lab 8: Networking 2</a></li>
-  <li><a href="#term-project-1-on-1-messaging-app" id="toc-term-project-1-on-1-messaging-app" class="nav-link" data-scroll-target="#term-project-1-on-1-messaging-app">Term project: 1-on-1 messaging app</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul></li>
-  <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a></li>
   </ul>
 </nav>
     </div>
@@ -174,7 +171,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Programming practice</h1>
+<h1 class="title">Programming Practice: Lab 6</h1>
 </div>
 
 
@@ -191,54 +188,94 @@ window.Quarto = {
 </header>
 
 
-<section id="labs" class="level2">
-<h2 class="anchored" data-anchor-id="labs">Labs</h2>
-<section id="lab-1-block-processor" class="level3">
-<h3 class="anchored" data-anchor-id="lab-1-block-processor">Lab 1: Block processor</h3>
-<p><a href="./lab1.html">Lab 1</a></p>
-</section>
-<section id="lab-2-git-intro" class="level3">
-<h3 class="anchored" data-anchor-id="lab-2-git-intro">Lab 2: Git intro</h3>
-<p><a href="./lab2.html">Lab 2</a></p>
-</section>
-<section id="lab-3-regular-expressions" class="level3">
-<h3 class="anchored" data-anchor-id="lab-3-regular-expressions">Lab 3: Regular Expressions</h3>
-<p><a href="./lab3.html">Lab 3</a></p>
-</section>
-<section id="lab-4-git-merges-blockprocessor-extension" class="level3">
-<h3 class="anchored" data-anchor-id="lab-4-git-merges-blockprocessor-extension">Lab 4: Git Merges + BlockProcessor extension</h3>
-<p><a href="./lab4.html">Lab 4</a></p>
-</section>
-<section id="lab-5-markdown-mermaid" class="level3">
-<h3 class="anchored" data-anchor-id="lab-5-markdown-mermaid">Lab 5: Markdown + Mermaid</h3>
-<p><a href="./lab5.html">Lab 5</a></p>
-</section>
-<section id="lab-6-sql-intro" class="level3">
-<h3 class="anchored" data-anchor-id="lab-6-sql-intro">Lab 6: SQL intro</h3>
-<p><a href="./lab6.html">Lab 6</a></p>
-</section>
-<section id="lab-7-networking-intro" class="level3">
-<h3 class="anchored" data-anchor-id="lab-7-networking-intro">Lab 7: Networking intro</h3>
-<p><a href="./lab7.html">Lab 7</a></p>
-</section>
-<section id="lab-8-networking-2" class="level3">
-<h3 class="anchored" data-anchor-id="lab-8-networking-2">Lab 8: Networking 2</h3>
-<p><a href="./lab8.html">Lab 8</a></p>
-</section>
-<section id="term-project-1-on-1-messaging-app" class="level3">
-<h3 class="anchored" data-anchor-id="term-project-1-on-1-messaging-app">Term project: 1-on-1 messaging app</h3>
-<p><a href="./project.html">Project</a></p>
-</section>
-</section>
-<section id="assessment" class="level2">
-<h2 class="anchored" data-anchor-id="assessment">Assessment</h2>
-<ul>
-<li>2 points max for each lesson</li>
-<li>4 points max for each lab (if submitted later than 2 weeks deadline, max points is 2)</li>
-</ul>
-<p>Hence, max points to score during semester is <span class="math inline">\((2+4)*16 = 96\)</span>.</p>
+<section id="validation-and-testing" class="level1">
+<h1>Validation and testing</h1>
+<p>We introduce two additional libraries here:</p>
+<ol type="1">
+<li><code>pydantic</code> (<a href="https://docs.pydantic.dev/latest/" class="uri">https://docs.pydantic.dev/latest/</a>)</li>
+<li><code>pytest</code> (<a href="https://docs.pytest.org/en/stable/" class="uri">https://docs.pytest.org/en/stable/</a>)</li>
+</ol>
+<p>Add these to uv project with:</p>
+<pre><code>uv add pydantic
+uv add pytest</code></pre>
+<p>Below is an example of using pydantic for CSV field validation:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydantic <span class="im">import</span> BaseModel, Field</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Record(BaseModel):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span>: <span class="bu">str</span> <span class="op">=</span> Field(pattern<span class="op">=</span><span class="vs">r"</span><span class="dv">^</span><span class="pp">[0-9a-fA-F]</span><span class="op">{8}</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    view: <span class="bu">int</span> <span class="op">=</span> Field(ge<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_csv(path: Path) <span class="op">-&gt;</span> <span class="bu">list</span>[Record]:</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(path, newline<span class="op">=</span><span class="st">""</span>) <span class="im">as</span> f:</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        reader <span class="op">=</span> csv.DictReader(f)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> [Record(<span class="bu">id</span><span class="op">=</span>row[<span class="st">"id"</span>], view<span class="op">=</span><span class="bu">int</span>(row[<span class="st">"view"</span>])) <span class="cf">for</span> row <span class="kw">in</span> reader]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>CSV example:</p>
+<pre class="csv"><code>id,view
+a1b2c3d4,150
+ff00ff00,0
+12345678,9999
+deadbeef,42
+abcdef01,300
+00000000,1
+ffffffff,500
+0a1b2c3d,77
+99887766,12345
+face1234,8</code></pre>
+<p>And an example of test written using pytest:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydantic <span class="im">import</span> ValidationError</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> models <span class="im">import</span> Record, read_csv</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>DATA_PATH <span class="op">=</span> Path(<span class="va">__file__</span>).parent <span class="op">/</span> <span class="st">"data.csv"</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_read_csv_returns_all_rows():</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    records <span class="op">=</span> read_csv(DATA_PATH)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(records) <span class="op">==</span> <span class="dv">10</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_read_csv_first_record():</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    record <span class="op">=</span> read_csv(DATA_PATH)[<span class="dv">0</span>]</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> record.<span class="bu">id</span> <span class="op">==</span> <span class="st">"a1b2c3d4"</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> record.view <span class="op">==</span> <span class="dv">150</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_valid_record():</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> Record(<span class="bu">id</span><span class="op">=</span><span class="st">"aabbccdd"</span>, view<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> r.<span class="bu">id</span> <span class="op">==</span> <span class="st">"aabbccdd"</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> r.view <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_invalid_id_too_short():</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> pytest.raises(ValidationError):</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>        Record(<span class="bu">id</span><span class="op">=</span><span class="st">"abc"</span>, view<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_invalid_id_non_hex():</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> pytest.raises(ValidationError):</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        Record(<span class="bu">id</span><span class="op">=</span><span class="st">"zzzzzzzz"</span>, view<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_negative_view():</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> pytest.raises(ValidationError):</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>        Record(<span class="bu">id</span><span class="op">=</span><span class="st">"00000000"</span>, view<span class="op">=-</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<ol type="1">
+<li>Add pydantic field validation for all classes in <a href="../2026/lab4.html">Lab 4</a>.</li>
+<li>Add pytest tests verifying the validation.</li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

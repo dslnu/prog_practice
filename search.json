@@ -147,6 +147,27 @@
     "text": "SQL SELECT examples: https://www.metabase.com/learn/sql/getting-started/querying-tables\nSQL cheatsheet: https://www.metabase.com/learn/cheat-sheets/sql-cheat-sheet"
   },
   {
+    "objectID": "2026/lab7.html",
+    "href": "2026/lab7.html",
+    "title": "Programming Practice: Lab 7",
+    "section": "",
+    "text": "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github\nLive editor: https://markdownlivepreview.com\n\n\n\n\n\nDocs: https://mermaid.js.org/intro/\nLive editor: https://mermaid.live"
+  },
+  {
+    "objectID": "2026/lab7.html#markdown",
+    "href": "2026/lab7.html#markdown",
+    "title": "Programming Practice: Lab 7",
+    "section": "",
+    "text": "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github\nLive editor: https://markdownlivepreview.com"
+  },
+  {
+    "objectID": "2026/lab7.html#mermaid",
+    "href": "2026/lab7.html#mermaid",
+    "title": "Programming Practice: Lab 7",
+    "section": "",
+    "text": "Docs: https://mermaid.js.org/intro/\nLive editor: https://mermaid.live"
+  },
+  {
     "objectID": "2026/lab2.html",
     "href": "2026/lab2.html",
     "title": "Programming Practice: Lab 2",
@@ -350,6 +371,20 @@
     "text": "Look at the below entity-relationship (ER) diagram:\n\n\n\n\n\nerDiagram\nBLOCKS {\n hexString id\n integer view\n string desc\n blob img\n}\n\nVOTES {\nhexString block_id\ninteger voter_id\ndatetime timestamp\ninteger source_id\n}\n\nPERSONS {\ninteger id\nstring name\nstring addr\n}\n\nSOURCES {\ninteger id\nstring ip_addr\nstring country_code\n}\n\nBLOCKS ||..o{ VOTES : votes\nVOTES }o..|| PERSONS : votes\nSOURCES ||..o{ VOTES : originates\n\n\n\n\n\n\nPlease use Python’s SQLite interface and write SQL queries for the following:\n\nCREATE TABLE statements for the above 4 tables.\nINSERT INTO statements to insert some test data into the tables."
   },
   {
+    "objectID": "2026/lab6.html",
+    "href": "2026/lab6.html",
+    "title": "Programming Practice: Lab 6",
+    "section": "",
+    "text": "We introduce two additional libraries here:\n\npydantic (https://docs.pydantic.dev/latest/)\npytest (https://docs.pytest.org/en/stable/)\n\nAdd these to uv project with:\nuv add pydantic\nuv add pytest\nBelow is an example of using pydantic for CSV field validation:\nimport csv\nfrom pathlib import Path\n\nfrom pydantic import BaseModel, Field\n\n\nclass Record(BaseModel):\n    id: str = Field(pattern=r\"^[0-9a-fA-F]{8}$\")\n    view: int = Field(ge=0)\n\n\ndef read_csv(path: Path) -&gt; list[Record]:\n    with open(path, newline=\"\") as f:\n        reader = csv.DictReader(f)\n        return [Record(id=row[\"id\"], view=int(row[\"view\"])) for row in reader]\nCSV example:\nid,view\na1b2c3d4,150\nff00ff00,0\n12345678,9999\ndeadbeef,42\nabcdef01,300\n00000000,1\nffffffff,500\n0a1b2c3d,77\n99887766,12345\nface1234,8\nAnd an example of test written using pytest:\nfrom pathlib import Path\n\nimport pytest\nfrom pydantic import ValidationError\n\nfrom models import Record, read_csv\n\nDATA_PATH = Path(__file__).parent / \"data.csv\"\n\n\ndef test_read_csv_returns_all_rows():\n    records = read_csv(DATA_PATH)\n    assert len(records) == 10\n\n\ndef test_read_csv_first_record():\n    record = read_csv(DATA_PATH)[0]\n    assert record.id == \"a1b2c3d4\"\n    assert record.view == 150\n\n\ndef test_valid_record():\n    r = Record(id=\"aabbccdd\", view=0)\n    assert r.id == \"aabbccdd\"\n    assert r.view == 0\n\n\ndef test_invalid_id_too_short():\n    with pytest.raises(ValidationError):\n        Record(id=\"abc\", view=0)\n\n\ndef test_invalid_id_non_hex():\n    with pytest.raises(ValidationError):\n        Record(id=\"zzzzzzzz\", view=0)\n\n\ndef test_negative_view():\n    with pytest.raises(ValidationError):\n        Record(id=\"00000000\", view=-1)\n\n\n\nAdd pydantic field validation for all classes in Lab 4.\nAdd pytest tests verifying the validation."
+  },
+  {
+    "objectID": "2026/lab6.html#exercises",
+    "href": "2026/lab6.html#exercises",
+    "title": "Programming Practice: Lab 6",
+    "section": "",
+    "text": "Add pydantic field validation for all classes in Lab 4.\nAdd pytest tests verifying the validation."
+  },
+  {
     "objectID": "2026/lab5.html",
     "href": "2026/lab5.html",
     "title": "Programming Practice: Lab 5",
@@ -368,14 +403,14 @@
     "href": "index2s.html",
     "title": "Programming practice",
     "section": "",
-    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5"
+    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5\n\n\n\nLab 6\n\n\n\nLab 7"
   },
   {
     "objectID": "index2s.html#labs",
     "href": "index2s.html#labs",
     "title": "Programming practice",
     "section": "",
-    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5"
+    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5\n\n\n\nLab 6\n\n\n\nLab 7"
   },
   {
     "objectID": "index2s.html#assessment",

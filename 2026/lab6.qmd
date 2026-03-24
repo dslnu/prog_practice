@@ -1,0 +1,115 @@
+---
+title: "Programming Practice: Lab 6"
+execute:
+  enabled: true
+  echo: false
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+# Validation and testing
+
+We introduce two additional libraries here:
+
+1. `pydantic` (<https://docs.pydantic.dev/latest/>)
+2. `pytest` (<https://docs.pytest.org/en/stable/>)
+
+Add these to uv project with:
+```
+uv add pydantic
+uv add pytest
+```
+
+Below is an example of using pydantic for CSV field validation:
+```python
+import csv
+from pathlib import Path
+
+from pydantic import BaseModel, Field
+
+
+class Record(BaseModel):
+    id: str = Field(pattern=r"^[0-9a-fA-F]{8}$")
+    view: int = Field(ge=0)
+
+
+def read_csv(path: Path) -> list[Record]:
+    with open(path, newline="") as f:
+        reader = csv.DictReader(f)
+        return [Record(id=row["id"], view=int(row["view"])) for row in reader]
+```
+
+CSV example:
+```csv
+id,view
+a1b2c3d4,150
+ff00ff00,0
+12345678,9999
+deadbeef,42
+abcdef01,300
+00000000,1
+ffffffff,500
+0a1b2c3d,77
+99887766,12345
+face1234,8
+```
+
+And an example of test written using pytest:
+```python
+from pathlib import Path
+
+import pytest
+from pydantic import ValidationError
+
+from models import Record, read_csv
+
+DATA_PATH = Path(__file__).parent / "data.csv"
+
+
+def test_read_csv_returns_all_rows():
+    records = read_csv(DATA_PATH)
+    assert len(records) == 10
+
+
+def test_read_csv_first_record():
+    record = read_csv(DATA_PATH)[0]
+    assert record.id == "a1b2c3d4"
+    assert record.view == 150
+
+
+def test_valid_record():
+    r = Record(id="aabbccdd", view=0)
+    assert r.id == "aabbccdd"
+    assert r.view == 0
+
+
+def test_invalid_id_too_short():
+    with pytest.raises(ValidationError):
+        Record(id="abc", view=0)
+
+
+def test_invalid_id_non_hex():
+    with pytest.raises(ValidationError):
+        Record(id="zzzzzzzz", view=0)
+
+
+def test_negative_view():
+    with pytest.raises(ValidationError):
+        Record(id="00000000", view=-1)
+```
+
+## Exercises
+
+1. Add pydantic field validation for all classes in [Lab 4](lab4.qmd).
+2. Add pytest tests verifying the validation.

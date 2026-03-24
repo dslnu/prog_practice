@@ -8,3 +8,9 @@ dependencies = [
     "jupyter>=1.1.1",
     "jupyter-cache>=1.0.1",
 ]
+
+[tool.uv.workspace]
+members = [
+    "_repos/pydantic",
+    "_repos/models",
+]

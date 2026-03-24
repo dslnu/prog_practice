@@ -20,6 +20,12 @@ title: "Programming practice"
 ### Lab 5: SQL part 3
 [Lab 5](./2026/lab5.qmd)
 
+### Lab 6: Validation and testing
+[Lab 6](./2026/lab6.qmd)
+
+### Lab 7: Documentation: Markdown and Mermaid
+[Lab 7](./2026/lab7.qmd)
+
 ## Assessment
 
 - 2 points max for each lesson

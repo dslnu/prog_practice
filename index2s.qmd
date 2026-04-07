@@ -26,6 +26,12 @@ title: "Programming practice"
 ### Lab 7: Documentation: Markdown and Mermaid
 [Lab 7](./2026/lab7.qmd)
 
+### Lab 8: GitHub Actions
+[Lab 8](./2026/lab8.qmd)
+
+### Lab 9: OpenCV and filtering
+[Lab 9](./2026/lab9.qmd)
+
 ## Assessment
 
 - 2 points max for each lesson

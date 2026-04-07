@@ -1,0 +1,38 @@
+---
+title: "Programming Practice: Lab 9"
+execute:
+  enabled: true
+  echo: false
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+# Intro
+
+OpenCV is a library for image manipulation. We will use its Python bindings. First, complete the following materials:
+
+1. Enroll into OpenCV course (<https://opencv.org/university/free-opencv-course/>)
+2. Complete 4 initial lessons:
+   - Getting Started with Images
+   - Basic Image Manipulation
+   - Image Annotation
+   - Image Enhancement
+3. Read the following two articles on filtering using OpenCV:
+   - <https://colab.research.google.com/drive/1bKnHP0ALcR0uL3OyyC0R55tJycfk5Lbh?usp=sharing#scrollTo=8DaCsYeNfAMj>
+   - <https://learnopencv.com/image-filtering-using-convolution-in-opencv/>
+
+# Exercise
+
+1. Write Python code that will blur/sharpen an input image.
+

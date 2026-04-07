@@ -1,0 +1,31 @@
+---
+title: "Programming Practice: Lab 8"
+execute:
+  enabled: true
+  echo: false
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+# GitHub Actions
+
+GitHub Actions enable Continuous Intergration/Continuous Deployment functionality (CI/CD) for our GitHub repository. 
+
+This allows us to e.g. run a build or tests on each push to the repo.
+
+# Exercises
+
+0. Read the tutorial: <https://docs.github.com/en/actions/tutorials/create-an-example-workflow>.
+1. Take the project from [Lab 6](lab6.qmd) and deploy it to GitHub.
+2. Set up GitHub Actions that run `pytest` on every push.

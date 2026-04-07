@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming practice – prog_practice</title>
+<title>Programming Practice: Lab 8 – prog_practice</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,23 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,37 +71,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -111,7 +82,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">prog_practice</span>
     </a>
   </div>
@@ -122,19 +93,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index1m.html"> 
+    <a class="nav-link" href="../index1m.html"> 
 <span class="menu-text">MTM-11 Programming Practice</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./index2s.html" aria-current="page"> 
+    <a class="nav-link" href="../index2s.html"> 
 <span class="menu-text">MTS-21 Programming Practice</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./index3s.html"> 
+    <a class="nav-link" href="../index3s.html"> 
 <span class="menu-text">MTS-31 Programming Practice</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">Programming Practice</span></a>
   </li>  
 </ul>
@@ -153,19 +124,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#labs" id="toc-labs" class="nav-link active" data-scroll-target="#labs">Labs</a>
-  <ul class="collapse">
-  <li><a href="#lab-1-env-setup-command-line-app" id="toc-lab-1-env-setup-command-line-app" class="nav-link" data-scroll-target="#lab-1-env-setup-command-line-app">Lab 1: Env setup; command-line app</a></li>
-  <li><a href="#lab-2-block-processor" id="toc-lab-2-block-processor" class="nav-link" data-scroll-target="#lab-2-block-processor">Lab 2: Block processor</a></li>
-  <li><a href="#lab-3-sql-part-1" id="toc-lab-3-sql-part-1" class="nav-link" data-scroll-target="#lab-3-sql-part-1">Lab 3: SQL part 1</a></li>
-  <li><a href="#lab-4-sql-part-2" id="toc-lab-4-sql-part-2" class="nav-link" data-scroll-target="#lab-4-sql-part-2">Lab 4: SQL part 2</a></li>
-  <li><a href="#lab-5-sql-part-3" id="toc-lab-5-sql-part-3" class="nav-link" data-scroll-target="#lab-5-sql-part-3">Lab 5: SQL part 3</a></li>
-  <li><a href="#lab-6-validation-and-testing" id="toc-lab-6-validation-and-testing" class="nav-link" data-scroll-target="#lab-6-validation-and-testing">Lab 6: Validation and testing</a></li>
-  <li><a href="#lab-7-documentation-markdown-and-mermaid" id="toc-lab-7-documentation-markdown-and-mermaid" class="nav-link" data-scroll-target="#lab-7-documentation-markdown-and-mermaid">Lab 7: Documentation: Markdown and Mermaid</a></li>
-  <li><a href="#lab-8-github-actions" id="toc-lab-8-github-actions" class="nav-link" data-scroll-target="#lab-8-github-actions">Lab 8: GitHub Actions</a></li>
-  <li><a href="#lab-9-opencv-and-filtering" id="toc-lab-9-opencv-and-filtering" class="nav-link" data-scroll-target="#lab-9-opencv-and-filtering">Lab 9: OpenCV and filtering</a></li>
-  </ul></li>
-  <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a></li>
+  <li><a href="#github-actions" id="toc-github-actions" class="nav-link active" data-scroll-target="#github-actions">GitHub Actions</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -174,7 +134,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Programming practice</h1>
+<h1 class="title">Programming Practice: Lab 8</h1>
 </div>
 
 
@@ -191,52 +151,18 @@ window.Quarto = {
 </header>
 
 
-<section id="labs" class="level2">
-<h2 class="anchored" data-anchor-id="labs">Labs</h2>
-<section id="lab-1-env-setup-command-line-app" class="level3">
-<h3 class="anchored" data-anchor-id="lab-1-env-setup-command-line-app">Lab 1: Env setup; command-line app</h3>
-<p><a href="./2026/lab1.html">Lab 1</a></p>
+<section id="github-actions" class="level1">
+<h1>GitHub Actions</h1>
+<p>GitHub Actions enable Continuous Intergration/Continuous Deployment functionality (CI/CD) for our GitHub repository.</p>
+<p>This allows us to e.g.&nbsp;run a build or tests on each push to the repo.</p>
 </section>
-<section id="lab-2-block-processor" class="level3">
-<h3 class="anchored" data-anchor-id="lab-2-block-processor">Lab 2: Block processor</h3>
-<p><a href="./2026/lab2.html">Lab 2</a></p>
-</section>
-<section id="lab-3-sql-part-1" class="level3">
-<h3 class="anchored" data-anchor-id="lab-3-sql-part-1">Lab 3: SQL part 1</h3>
-<p><a href="./2026/lab3.html">Lab 3</a></p>
-</section>
-<section id="lab-4-sql-part-2" class="level3">
-<h3 class="anchored" data-anchor-id="lab-4-sql-part-2">Lab 4: SQL part 2</h3>
-<p><a href="./2026/lab4.html">Lab 4</a></p>
-</section>
-<section id="lab-5-sql-part-3" class="level3">
-<h3 class="anchored" data-anchor-id="lab-5-sql-part-3">Lab 5: SQL part 3</h3>
-<p><a href="./2026/lab5.html">Lab 5</a></p>
-</section>
-<section id="lab-6-validation-and-testing" class="level3">
-<h3 class="anchored" data-anchor-id="lab-6-validation-and-testing">Lab 6: Validation and testing</h3>
-<p><a href="./2026/lab6.html">Lab 6</a></p>
-</section>
-<section id="lab-7-documentation-markdown-and-mermaid" class="level3">
-<h3 class="anchored" data-anchor-id="lab-7-documentation-markdown-and-mermaid">Lab 7: Documentation: Markdown and Mermaid</h3>
-<p><a href="./2026/lab7.html">Lab 7</a></p>
-</section>
-<section id="lab-8-github-actions" class="level3">
-<h3 class="anchored" data-anchor-id="lab-8-github-actions">Lab 8: GitHub Actions</h3>
-<p><a href="./2026/lab8.html">Lab 8</a></p>
-</section>
-<section id="lab-9-opencv-and-filtering" class="level3">
-<h3 class="anchored" data-anchor-id="lab-9-opencv-and-filtering">Lab 9: OpenCV and filtering</h3>
-<p><a href="./2026/lab9.html">Lab 9</a></p>
-</section>
-</section>
-<section id="assessment" class="level2">
-<h2 class="anchored" data-anchor-id="assessment">Assessment</h2>
-<ul>
-<li>2 points max for each lesson</li>
-<li>4 points max for each lab (if submitted later than 2 weeks deadline, max points is 2)</li>
-</ul>
-<p>Hence, max points to score during semester is <span class="math inline">\((2+4)*15 = 90\)</span>.</p>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<ol start="0" type="1">
+<li>Read the tutorial: <a href="https://docs.github.com/en/actions/tutorials/create-an-example-workflow" class="uri">https://docs.github.com/en/actions/tutorials/create-an-example-workflow</a>.</li>
+<li>Take the project from <a href="../2026/lab6.html">Lab 6</a> and deploy it to GitHub.</li>
+<li>Set up GitHub Actions that run <code>pytest</code> on every push.</li>
+</ol>
 
 
 </section>

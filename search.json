@@ -119,6 +119,13 @@
     "text": "Exercises\nTask 1. Continue from where Lab 7 left off. Improve server code so that it integrates with BlockProcessor and fetches block data given its ID.\n\n\nRecommended reading\n\nRequests library: https://docs.python-requests.org/en/latest/index.html\nJSON library: https://www.w3schools.com/python/python_json.asp"
   },
   {
+    "objectID": "2026/lab8.html",
+    "href": "2026/lab8.html",
+    "title": "Programming Practice: Lab 8",
+    "section": "",
+    "text": "GitHub Actions\nGitHub Actions enable Continuous Intergration/Continuous Deployment functionality (CI/CD) for our GitHub repository.\nThis allows us to e.g. run a build or tests on each push to the repo.\n\n\nExercises\n\nRead the tutorial: https://docs.github.com/en/actions/tutorials/create-an-example-workflow.\nTake the project from Lab 6 and deploy it to GitHub.\nSet up GitHub Actions that run pytest on every push."
+  },
+  {
     "objectID": "2026/lab4.html",
     "href": "2026/lab4.html",
     "title": "Programming Practice: Lab 4",
@@ -399,18 +406,25 @@
     "text": "Modify BlockProcessor code so that it uses SQLite database instead of CSVs.\n\nCreate an extra Python script updater that will be doing the insertions. This should run as a console app, that can either read csv files in bulk, or listen for user input.\nupdater will insert records into Blocks/Votes/Persons/Sources, and will also update a new table - event_stream, containing just two fields - type and id.\nActual BlockProcessor will check the event_stream table for updates periodically (usi, look into respective tables (blocks or votes), and invoke chain processing code.\n\n\n\n\n\n\n\nImportant\n\n\n\nUse some kind of mechanism to mark records in event_stream as read by BlockProcessor."
   },
   {
+    "objectID": "2026/lab9.html",
+    "href": "2026/lab9.html",
+    "title": "Programming Practice: Lab 9",
+    "section": "",
+    "text": "Intro\nOpenCV is a library for image manipulation. We will use its Python bindings. First, complete the following materials:\n\nEnroll into OpenCV course (https://opencv.org/university/free-opencv-course/)\nComplete 4 initial lessons:\n\nGetting Started with Images\nBasic Image Manipulation\nImage Annotation\nImage Enhancement\n\nRead the following two articles on filtering using OpenCV:\n\nhttps://colab.research.google.com/drive/1bKnHP0ALcR0uL3OyyC0R55tJycfk5Lbh?usp=sharing#scrollTo=8DaCsYeNfAMj\nhttps://learnopencv.com/image-filtering-using-convolution-in-opencv/\n\n\n\n\nExercise\n\nWrite Python code that will blur/sharpen an input image."
+  },
+  {
     "objectID": "index2s.html",
     "href": "index2s.html",
     "title": "Programming practice",
     "section": "",
-    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5\n\n\n\nLab 6\n\n\n\nLab 7"
+    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5\n\n\n\nLab 6\n\n\n\nLab 7\n\n\n\nLab 8\n\n\n\nLab 9"
   },
   {
     "objectID": "index2s.html#labs",
     "href": "index2s.html#labs",
     "title": "Programming practice",
     "section": "",
-    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5\n\n\n\nLab 6\n\n\n\nLab 7"
+    "text": "Lab 1\n\n\n\nLab 2\n\n\n\nLab 3\n\n\n\nLab 4\n\n\n\nLab 5\n\n\n\nLab 6\n\n\n\nLab 7\n\n\n\nLab 8\n\n\n\nLab 9"
   },
   {
     "objectID": "index2s.html#assessment",

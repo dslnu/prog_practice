@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming Practice: Lab 1 – prog_practice</title>
+<title>Programming Practice: Lab 10 – prog_practice</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -70,9 +70,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -127,12 +124,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#environment-setup" id="toc-environment-setup" class="nav-link active" data-scroll-target="#environment-setup">Environment setup</a>
+  <li><a href="#concurrency-and-parallelism" id="toc-concurrency-and-parallelism" class="nav-link active" data-scroll-target="#concurrency-and-parallelism">Concurrency and parallelism</a>
   <ul class="collapse">
-  <li><a href="#required-tools" id="toc-required-tools" class="nav-link" data-scroll-target="#required-tools">Required tools</a></li>
-  <li><a href="#project-setup" id="toc-project-setup" class="nav-link" data-scroll-target="#project-setup">Project setup</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul></li>
-  <li><a href="#lab-task" id="toc-lab-task" class="nav-link" data-scroll-target="#lab-task">Lab task</a></li>
   </ul>
 </nav>
     </div>
@@ -141,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Programming Practice: Lab 1</h1>
+<h1 class="title">Programming Practice: Lab 10</h1>
 </div>
 
 
@@ -158,60 +153,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="environment-setup" class="level2">
-<h2 class="anchored" data-anchor-id="environment-setup">Environment setup</h2>
-<section id="required-tools" class="level3">
-<h3 class="anchored" data-anchor-id="required-tools">Required tools</h3>
+<section id="concurrency-and-parallelism" class="level1">
+<h1>Concurrency and parallelism</h1>
+<p>Multithreading: <a href="https://docs.python.org/3/library/threading.html" class="uri">https://docs.python.org/3/library/threading.html</a></p>
+<p>Multiprocessing: <a href="https://docs.python.org/3/library/multiprocessing.html" class="uri">https://docs.python.org/3/library/multiprocessing.html</a></p>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
 <ol type="1">
-<li>uv (<a href="https://docs.astral.sh/uv/getting-started/installation/" class="uri">https://docs.astral.sh/uv/getting-started/installation/</a>)</li>
-<li>git (<a href="https://git-scm.com/install/windows" class="uri">https://git-scm.com/install/windows</a>)</li>
-</ol>
-</section>
-<section id="project-setup" class="level3">
-<h3 class="anchored" data-anchor-id="project-setup">Project setup</h3>
-<ol type="1">
-<li>Run Git Bash, this should be installed as part of “Git for Windows”.</li>
-<li><code>mkdir labs</code>.</li>
-<li><code>cd labs</code>.</li>
-<li><code>uv init</code>.</li>
-</ol>
-</section>
-</section>
-<section id="lab-task" class="level2">
-<h2 class="anchored" data-anchor-id="lab-task">Lab task</h2>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-    A(Input) --&gt;|read| B[Program]
-    B --&gt;|write| C(Output)
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p>Please write a simple Python script that will sum integers. It should:</p>
-<ol type="1">
-<li>Access input either as command-line arguments, or as a file
-<ul>
-<li>cmd line example: <code>prog.py 5 6</code></li>
-<li>file example: <code>prog.py -f file.txt</code></li>
-</ul></li>
-</ol>
-<p>In case of file argument, each line in a file should contain a number to be added</p>
-<ol start="2" type="1">
-<li>Produce output either to console, or to a file.
-<ul>
-<li>console output: just print the number and exit</li>
-<li>file output: <code>prog.py -f file.txt -o out.txt</code>. In this case <code>out.txt</code> should contain the result.</li>
-</ul></li>
-<li>For command line argument parsing, use <code>argparse</code> (<a href="https://docs.python.org/3/howto/argparse.html" class="uri">https://docs.python.org/3/howto/argparse.html</a>). Bonus points for implementation using <code>Typer</code> (<a href="https://typer.tiangolo.com/" class="uri">https://typer.tiangolo.com/</a>)</li>
+<li>Write multithreaded and multiprocess versions of image processing code and compare performance.</li>
 </ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

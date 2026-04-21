@@ -32,6 +32,14 @@ title: "Programming practice"
 ### Lab 9: OpenCV and filtering
 [Lab 9](./2026/lab9.qmd)
 
+### Lab 10: Concurrency and parallelism
+[Lab 10](./2026/lab10.qmd)
+
+### Lab 11: OpenCV and filtering
+[Lab 11](./2026/lab11.qmd)
+
+
+
 ## Assessment
 
 - 2 points max for each lesson

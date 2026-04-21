@@ -1,0 +1,29 @@
+---
+title: "Programming Practice: Lab 10"
+execute:
+  enabled: true
+  echo: false
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+# Concurrency and parallelism
+
+Multithreading: <https://docs.python.org/3/library/threading.html>
+
+Multiprocessing: <https://docs.python.org/3/library/multiprocessing.html>
+
+## Exercises
+
+1. Write multithreaded and multiprocess versions of image processing code and compare performance.

@@ -1,0 +1,121 @@
+---
+title: "Programming Practice: Lab 11"
+execute:
+  enabled: true
+  echo: true
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+# Networking
+
+In this lab we will simulate networking communication between client and server, where server will do somemeaningful work the client per its `request` and will give back some `response`.
+
+## Server
+Create `server.py` file with the following content:
+
+```python
+# load additional Python module
+import socket, sys
+
+
+# create TCP/IP socket
+sock = socket.socket()
+
+port = 25002
+print ('starting up on port ', port)
+sock.bind(('localhost', port))
+
+sock.listen(1)
+
+while True:
+    # wait for a connection
+    print ('waiting for a connection')
+    connection, client_address = sock.accept()
+
+    try:
+        # show who connected to us
+        print ('connection from', client_address)
+
+        # receive the data in small chunks and print it
+        while True:
+            data = connection.recv(512).decode()
+            if data:
+                # output received data
+                print ("Data: ", data)
+            else:
+                # no more data -- quit the loop
+                print ("no more data.")
+                break
+
+    finally:
+        # Clean up the connection
+        connection.close()
+
+sock.close()
+```
+
+## Client
+Create `client.py` file with the following content:
+
+```python
+import socket
+
+client_socket = socket.socket()
+port = 25002
+client_socket.connect(('localhost', port))
+while True:
+    data = input("input msg (q to quit):")
+
+    client_socket.sendall(data.encode('utf-8'))
+    if data.lower() == 'q':
+        client_socket.close()
+        break
+
+```
+
+## Fetching website data
+We can use the following template code to fetch data given its URL:
+
+```python
+import requests
+
+# Fetch url
+r = requests.get('https://wikipedia.org')
+# Response headers
+r.headers
+# Response Content
+r.text
+# OR
+r.json()
+```
+
+
+
+# Exercises
+
+**Task 1**. Write server code that will fetch below data from provided url:
+
+  - headers
+  - lines matching a given regex
+
+:::{.callout-note}
+Use JSON as a request body.
+
+:::
+
+# Recommended reading
+
+1. Requests library: <https://docs.python-requests.org/en/latest/index.html>
+2. JSON library: <https://www.w3schools.com/python/python_json.asp>

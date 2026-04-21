@@ -113,6 +113,8 @@ r.json()
 :::{.callout-note}
 Use JSON as a request body.
 
+**Task 2.** Extend the request handler so that it applies a black-and-white filter on an image specified in request URL and returns the resulting image.
+
 :::
 
 # Recommended reading

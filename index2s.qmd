@@ -35,7 +35,7 @@ title: "Programming practice"
 ### Lab 10: Concurrency and parallelism
 [Lab 10](./2026/lab10.qmd)
 
-### Lab 11: OpenCV and filtering
+### Lab 11: Network communication
 [Lab 11](./2026/lab11.qmd)
 
 

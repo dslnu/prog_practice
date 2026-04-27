@@ -38,6 +38,10 @@ title: "Programming practice"
 ### Lab 11: Network communication
 [Lab 11](./2026/lab11.qmd)
 
+### Lab 12: DuckDB
+[Lab 12](./2026/lab12.qmd)
+
+
 
 
 ## Assessment

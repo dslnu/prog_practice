@@ -1,0 +1,131 @@
+---
+title: "Programming Practice: Lab 12"
+execute:
+  enabled: true
+  echo: true
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+# DuckDB
+
+Fetch data from <https://ftp.acc.umu.se/mirror/wikimedia.org/other/pageview_complete>.
+
+```python
+import duckdb
+from pathlib import Path
+
+def ingest(bz2_path: str, parquet_path: str):
+    con = duckdb.connect()
+    
+    con.sql(f"""
+        COPY (
+            SELECT 
+                wiki_code,
+                article_title,
+                TRY_CAST(page_id AS INTEGER) AS page_id,
+                agent_type,
+                view_count,
+                hourly_encoded
+            FROM read_csv(
+                '{bz2_path}',
+                delim=' ',
+                header=false,
+                columns={{
+                    'wiki_code': 'VARCHAR',
+                    'article_title': 'VARCHAR',
+                    'page_id': 'VARCHAR',
+                    'agent_type': 'VARCHAR',
+                    'view_count': 'INTEGER',
+                    'hourly_encoded': 'VARCHAR'
+                }},
+                -- compression='bzip2',
+                ignore_errors=true   -- skip the occasional 5-column row
+            )
+            WHERE wiki_code IN ('en.wikipedia', 'en.wikipedia.m')
+              AND article_title NOT LIKE 'Special:%'
+              AND article_title != 'Main_Page'
+              AND article_title != '-'
+        )
+        TO '{parquet_path}'
+        (FORMAT PARQUET, COMPRESSION ZSTD, ROW_GROUP_SIZE 100000)
+    """)
+```
+
+Run it:
+```python
+src = '../_data/pageviews-20250902-user'
+dst = '../_data/202509092.parquet'
+ingest(src, dst)
+```
+
+Use it:
+```{python}
+import duckdb
+
+dst = '../_data/202509092.parquet'
+con = duckdb.connect()
+con.sql(f"""
+    CREATE VIEW pageviews AS 
+    SELECT * FROM read_parquet('{dst}') --, hive_partitioning=true)
+""")
+```
+
+Get counts:
+```{python}
+con.sql("""
+SELECT COUNT(*) AS rows, 
+       COUNT(DISTINCT article_title) AS unique_articles,
+       COUNT(DISTINCT wiki_code) AS projects,
+       SUM(view_count) AS total_views
+FROM pageviews;
+""")
+```
+
+Counts by agent type:
+
+```{python}
+con.sql("""
+SELECT agent_type, COUNT(*) AS rows, SUM(view_count) AS views
+FROM pageviews
+GROUP BY agent_type
+ORDER BY views DESC;
+""")
+```
+
+Most popular:
+
+```{python}
+con.sql("""
+SELECT article_title, view_count
+FROM pageviews
+WHERE wiki_code = 'en.wikipedia'
+  AND article_title NOT LIKE 'Special:%'
+  AND article_title NOT LIKE 'Wikipedia:%'
+  AND article_title NOT LIKE 'Help:%'
+  AND article_title NOT LIKE 'File:%'
+  AND article_title NOT LIKE 'Category:%'
+  AND article_title NOT LIKE 'Portal:%'
+  AND article_title NOT LIKE 'Template:%'
+  AND article_title != 'Main_Page'
+  AND article_title != '-'
+ORDER BY view_count DESC
+LIMIT 20;
+""")
+```
+
+# Exercises
+
+1. Process `hourly_encoded` column.
+2. 

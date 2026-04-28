@@ -20,8 +20,9 @@ filters:
 
 # DuckDB
 
-Fetch data from <https://ftp.acc.umu.se/mirror/wikimedia.org/other/pageview_complete>.
+We will use Wikipedia page view data set from <https://ftp.acc.umu.se/mirror/wikimedia.org/other/pageview_complete>.
 
+Downloaded filez will be in bz2 format: use the following code to convert to Parquet:
 ```python
 import duckdb
 from pathlib import Path
@@ -50,7 +51,7 @@ def ingest(bz2_path: str, parquet_path: str):
                     'view_count': 'INTEGER',
                     'hourly_encoded': 'VARCHAR'
                 }},
-                -- compression='bzip2',
+                compression='bzip2',
                 ignore_errors=true   -- skip the occasional 5-column row
             )
             WHERE wiki_code IN ('en.wikipedia', 'en.wikipedia.m')
@@ -65,12 +66,12 @@ def ingest(bz2_path: str, parquet_path: str):
 
 Run it:
 ```python
-src = '../_data/pageviews-20250902-user'
+src = '../_data/pageviews-20250902-user.bz2'
 dst = '../_data/202509092.parquet'
 ingest(src, dst)
 ```
 
-Use it:
+And now you can use it:
 ```{python}
 import duckdb
 
@@ -82,7 +83,9 @@ con.sql(f"""
 """)
 ```
 
-Get counts:
+## Examples
+:::{.callout-tip icon=false}
+## Get counts
 ```{python}
 con.sql("""
 SELECT COUNT(*) AS rows, 
@@ -92,8 +95,10 @@ SELECT COUNT(*) AS rows,
 FROM pageviews;
 """)
 ```
+:::
 
-Counts by agent type:
+:::{.callout-note icon=false}
+## Counts by agent type
 
 ```{python}
 con.sql("""
@@ -103,8 +108,11 @@ GROUP BY agent_type
 ORDER BY views DESC;
 """)
 ```
+:::
 
-Most popular:
+
+:::{.callout-tip icon=false}
+## Most popular
 
 ```{python}
 con.sql("""
@@ -124,8 +132,15 @@ ORDER BY view_count DESC
 LIMIT 20;
 """)
 ```
+:::
+
 
 # Exercises
 
-1. Process `hourly_encoded` column.
-2. 
+1. Learn how to process `hourly_encoded` column.
+2. Embed this functionality into server component of the previous lab.
+
+
+:::{.callout-note}
+Use DuckDB docs at <https://duckdb.org/docs/current/sql/introduction#aggregate-functions>
+:::

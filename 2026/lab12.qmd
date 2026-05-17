@@ -22,7 +22,7 @@ filters:
 
 We will use Wikipedia page view data set from <https://ftp.acc.umu.se/mirror/wikimedia.org/other/pageview_complete>.
 
-Downloaded filez will be in bz2 format: use the following code to convert to Parquet:
+Downloaded files will be in bz2 format: use the following code to convert to Parquet:
 ```python
 import duckdb
 from pathlib import Path
@@ -142,5 +142,6 @@ LIMIT 20;
 
 
 :::{.callout-note}
-Use DuckDB docs at <https://duckdb.org/docs/current/sql/introduction#aggregate-functions>
+1. Use DuckDB docs at <https://duckdb.org/docs/current/sql/introduction#aggregate-functions>
+2. Data description: <https://dumps.wikimedia.org/other/pageview_complete/readme.html>
 :::

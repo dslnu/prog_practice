@@ -1,0 +1,34 @@
+---
+title: "Programming Practice: Lab 13"
+execute:
+  enabled: true
+  echo: true
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+# FastAPI
+
+Complete FastAPI tutorial:
+
+- <https://fastapi.tiangolo.com/tutorial/>
+- <https://fastapi.tiangolo.com/tutorial/first-steps/>
+- <https://fastapi.tiangolo.com/tutorial/path-params/>
+- <https://fastapi.tiangolo.com/tutorial/query-params/>
+- <https://fastapi.tiangolo.com/tutorial/body/>
+
+# Exercises
+
+1. Replace server component from labs 11-12 with FastAPI.
+2. Rewrite clients in labs 11-12 so that they work with FastAPI server.

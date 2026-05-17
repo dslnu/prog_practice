@@ -41,6 +41,12 @@ title: "Programming practice"
 ### Lab 12: DuckDB
 [Lab 12](./2026/lab12.qmd)
 
+### Lab 13: FastAPI
+[Lab 13](./2026/lab13.qmd)
+
+### Lab 14: Quarto
+[Lab 14](./2026/lab14.qmd)
+
 
 
 

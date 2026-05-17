@@ -1,0 +1,33 @@
+---
+title: "Programming Practice: Lab 14"
+execute:
+  enabled: true
+  echo: true
+  cache: true
+format:
+  html:
+    code-fold: false
+jupyter: python3
+diagram:
+  cache: true
+  cache-dir: ./cache
+  engine:
+    tikz:
+      execpath: lualatex
+filters:
+  - diagram
+---
+
+# Quarto
+
+Please complete the following:
+- Get Started tutorial (<https://quarto.org/docs/get-started/>)
+- Website creation tutorial (<https://quarto.org/docs/websites/>)
+- Presentation tutorial (<https://quarto.org/docs/presentations/revealjs/>)
+
+# Exercises
+
+1. Create a Quarto website with the following content:
+   - About page
+   - RevealJS presentation
+   - Documentation page for one of the previous course labs, including Mermaid diagrams and some code
